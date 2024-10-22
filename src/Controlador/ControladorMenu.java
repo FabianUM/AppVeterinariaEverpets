@@ -101,7 +101,10 @@ public class ControladorMenu implements ActionListener{
         }
         
         if(e.getSource() == vista.btnSalir){
-            System.exit(0);
+            //System.exit(0);
+            vista.dispose();
+            FrmLogin f12 = new FrmLogin();
+            ControladorLogin control12 = new ControladorLogin(f12);
         }
     
     }//fin ActionListener
