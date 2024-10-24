@@ -5,14 +5,34 @@ import Principal.*;
 import Vista.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class ControladorMenu implements ActionListener{
     FormularioMenu vista;
     Usuarios u=new Usuarios();
+    private JPopupMenu jPopupMenu1; // Definir el JPopupMenu
     
     public ControladorMenu(FormularioMenu f1){
         vista=f1;
+        
+         // Crear el JPopupMenu
+        jPopupMenu1 = new JPopupMenu();
+        JMenuItem menuItem1 = new JMenuItem("Configuración cuenta");
+        menuItem1.addActionListener(e -> {
+            FrmInfoCuenta f12 = new FrmInfoCuenta();
+            ControladorInfoCuenta control12 = new ControladorInfoCuenta(f12);
+            vista.jdpnContenedor.add(f12);
+        });
+        JMenuItem menuItem2 = new JMenuItem("Cerrar Sesión");
+        menuItem2.addActionListener(e -> {
+            vista.dispose(); // Ejemplo: cerrar la ventana actual
+            FrmLogin f12 = new FrmLogin(); // Ejemplo: abrir el formulario de login
+            ControladorLogin control12 = new ControladorLogin(f12);
+        });
+        
+        jPopupMenu1.add(menuItem1);
+        jPopupMenu1.add(menuItem2);
+
         //hacer que los botones funcionen
         vista.mitemMantenimientoDueño.addActionListener(this);
         vista.mitemMantenimientoCitas.addActionListener(this);
@@ -25,7 +45,9 @@ public class ControladorMenu implements ActionListener{
         vista.mitemTurnosCita.addActionListener(this);
         vista.mitemMantenimientoUsuarios.addActionListener(this);
         vista.mitemVeterinaria.addActionListener(this);
-        vista.btnSalir.addActionListener(this);
+        
+        vista.btnConfiguracion.addActionListener(this);
+        
         f1.setExtendedState(JFrame.MAXIMIZED_BOTH);
         f1.setTitle("Aplicación de Veterinaria");
         f1.setVisible(true);
@@ -100,11 +122,9 @@ public class ControladorMenu implements ActionListener{
             vista.jdpnContenedor.add(f11);
         }
         
-        if(e.getSource() == vista.btnSalir){
-            //System.exit(0);
-            vista.dispose();
-            FrmLogin f12 = new FrmLogin();
-            ControladorLogin control12 = new ControladorLogin(f12);
+        if (e.getSource() == vista.btnConfiguracion) {
+            // Mostrar el JPopupMenu
+            jPopupMenu1.show(vista.btnConfiguracion, 0, vista.btnConfiguracion.getHeight());
         }
     
     }//fin ActionListener

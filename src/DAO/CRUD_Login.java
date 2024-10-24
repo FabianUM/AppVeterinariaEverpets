@@ -9,7 +9,8 @@ public class CRUD_Login extends ConectarBD{
     public CRUD_Login(){}
     
     public Usuarios login(String usuario, String clave){
-        String sql="SELECT * FROM USUARIOS WHERE nombres='"+usuario+"' and clave='"+clave+"'";
+        String sql="SELECT idUsuario,apellidos, nombres,correo,clave,esActivo,imagen,idRol "+
+                "FROM USUARIOS WHERE nombres='"+usuario+"' and clave='"+clave+"'";
         Usuarios u = new Usuarios();
         int cant=0;
         try {
@@ -23,12 +24,13 @@ public class CRUD_Login extends ConectarBD{
                 u.setNombres(rs.getString(3));
                 u.setCorreo(rs.getString(4));
                 u.setClave(rs.getString(5));
-                u.setIdRol(rs.getInt(6));
-                u.setEsActivo(rs.getInt(7));
+                u.setEsActivo(rs.getInt(6));
+                u.setImagen(rs.getBytes(7));
+                u.setIdRol(rs.getInt(8));
                 u.RegistroUsuarios(cant);
             }
         } catch (Exception e) {
-            Mensajes.M1("Error ");
+            Mensajes.M1("Error: "+e);
         }
         return u;
     }//fin metodo

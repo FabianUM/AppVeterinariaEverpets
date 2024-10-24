@@ -1,6 +1,5 @@
 package Procesos;
 //librerias
-//librerias
 import DAO.*;
 import Formatos.*;
 import Modelo.*;
@@ -14,7 +13,6 @@ public class ProcesosVeterinaria {
     public static void Presentacion(frmVeterinariaEverpets f11){
         f11.setVisible(true);
         f11.setTitle("Frm De Nuestra Empresa");
-        //f11.jtxtBuscarImagen.setVisible(false);
     }
     
     public static void LimpiarEntradas(frmVeterinariaEverpets f11){

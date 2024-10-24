@@ -54,6 +54,7 @@ public class ControladorLogin implements ActionListener{
         } else {
             u = crud.login(usuario, clave);
             if (u.getNombres() != null) {
+                Usuarios.setUsuarioActual(u);
                 fm = new FormularioMenu();
                 switch (u.getIdRol()) {
                     case 2: 
@@ -77,7 +78,7 @@ public class ControladorLogin implements ActionListener{
                 Mensajes.M1("Datos incorrectos");
                 ProcesosLogin.LimpiarEntradas(vista);
             }
-        }
+        }//fin else
     }//fin metodo
     
     

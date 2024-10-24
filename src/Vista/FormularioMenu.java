@@ -26,8 +26,9 @@ public class FormularioMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         jdpnContenedor = new javax.swing.JDesktopPane();
-        btnSalir = new javax.swing.JButton();
+        btnConfiguracion = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mitemMantenimientoDueño = new javax.swing.JMenuItem();
@@ -50,26 +51,25 @@ public class FormularioMenu extends javax.swing.JFrame {
 
         jdpnContenedor.setBackground(new java.awt.Color(255, 255, 204));
 
-        btnSalir.setBackground(new java.awt.Color(255, 51, 51));
-        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir");
-        btnSalir.setFocusable(false);
+        btnConfiguracion.setBackground(new java.awt.Color(204, 255, 204));
+        btnConfiguracion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnConfiguracion.setText("Configuracion");
+        btnConfiguracion.setFocusable(false);
 
-        jdpnContenedor.setLayer(btnSalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdpnContenedor.setLayer(btnConfiguracion, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jdpnContenedorLayout = new javax.swing.GroupLayout(jdpnContenedor);
         jdpnContenedor.setLayout(jdpnContenedorLayout);
         jdpnContenedorLayout.setHorizontalGroup(
-            jdpnContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpnContenedorLayout.createSequentialGroup()
-                .addGap(0, 722, Short.MAX_VALUE)
-                .addComponent(btnSalir))
+            jdpnContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jdpnContenedorLayout.createSequentialGroup()
+                .addGap(0, 668, Short.MAX_VALUE)
+                .addComponent(btnConfiguracion))
         );
         jdpnContenedorLayout.setVerticalGroup(
             jdpnContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdpnContenedorLayout.createSequentialGroup()
-                .addComponent(btnSalir)
+                .addComponent(btnConfiguracion)
                 .addGap(0, 468, Short.MAX_VALUE))
         );
 
@@ -187,13 +187,14 @@ public class FormularioMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnConfiguracion;
     public javax.swing.JMenu jAdministracion;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     public javax.swing.JMenu jMenuConfiguracion;
+    private javax.swing.JPopupMenu jPopupMenu1;
     public javax.swing.JDesktopPane jdpnContenedor;
     public javax.swing.JMenuItem mitemImprimirCarnet;
     public javax.swing.JMenuItem mitemListarCitas;

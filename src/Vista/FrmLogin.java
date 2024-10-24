@@ -70,7 +70,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         btnCancelar.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancelar.setText("Cancelar");
+        btnCancelar.setText("Salir");
         btnCancelar.setFocusable(false);
         jPanelMenu.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 110, 40));
 

@@ -10,6 +10,7 @@ public class Usuarios {
     private String clave;
     private int idRol;
     private int esActivo;
+    private byte[] imagen;
     public Usuarios(){}
 
     public int getIdUsuario()                       {return idUsuario;}
@@ -26,6 +27,8 @@ public class Usuarios {
     public void setIdRol(int idRol)                 {this.idRol = idRol;}
     public int getEsActivo()                        {return esActivo;}
     public void setEsActivo(int esActivo)           {this.esActivo = esActivo;}
+    public byte[] getImagen()                       {return imagen;}
+    public void setImagen(byte[] imagen)            {this.imagen = imagen;}
     
     public String EstadoActiDesa(int esActivo){
         String estado=null;
@@ -41,6 +44,16 @@ public class Usuarios {
             EstadoActiDesa(esActivo)};
         return fila;
     }//fin funcion
+    
+    public static Usuarios usuarioActual;
+
+    public static void setUsuarioActual(Usuarios usuario) {
+        usuarioActual = usuario;
+    }
+
+    public static Usuarios getUsuarioActual() {
+        return usuarioActual;
+    }
     
     
 }//fin clase
