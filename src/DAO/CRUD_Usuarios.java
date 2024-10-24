@@ -9,15 +9,16 @@ import javax.swing.table.DefaultTableModel;
 public class CRUD_Usuarios extends ConectarBD{
     public CRUD_Usuarios(){}
     //metodo que muestra en JTable los registros de las tablas categorias
-    public void MostrarUsuariosEnTabla(JTable tabla){
+    public void MostrarUsuariosEnTabla(JTable tabla, int idU){
         String[] Titulos={"Nro","Codigo","Apellidos","Nombres","Correo","Clave","ROl","Estado"};
         DefaultTableModel modelo=new DefaultTableModel(null,Titulos);
         tabla.setModel(modelo);
         Usuarios u=new Usuarios();
         int cantreg=0;
         try{
-            rs=st.executeQuery("select u.idUsuario,u.apellidos,u.nombres,u.correo,u.clave,u.idRol,u.esActivo" +
-                              " from usuarios u;");
+            rs=st.executeQuery("SELECT u.idUsuario,u.apellidos,u.nombres,u.correo,u.clave,u.idRol,u.esActivo" +
+                              " FROM usuarios u"+
+                              " WHERE u.idUsuario!='"+idU+"';");
             while(rs.next()){
                 cantreg++;
                 u.setIdUsuario(rs.getInt(1));

@@ -29,7 +29,8 @@ public class ControladorUsuarios implements ActionListener{
     
     void ActualizarForma(){
          crud = new CRUD_Usuarios();
-         crud.MostrarUsuariosEnTabla(vista.tblUsuarios);
+         int idU = Usuarios.usuarioActual.getIdUsuario();
+         crud.MostrarUsuariosEnTabla(vista.tblUsuarios,idU);
          ProcesosUsuarios.Estado1(vista);
          ProcesosUsuarios.LimpiarEntradas(vista);
          ManejadorTablas.FormatoTablaUsuarios(vista.tblUsuarios);
