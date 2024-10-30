@@ -48,17 +48,18 @@ public class ControladorDeMascota implements ActionListener{
            crud=new CRUD_Mascotas();
            cat=crud.RecuperarMascota(idcat);
            if(cat==null){
-               Mensajes.M1("El id "+idcat+" no existe en la tabla categorias...");
+               Mensajes.M1("El id "+idcat+" no existe en la tabla Mascota...");
            }else{
+               AdministrarClaves ac = new AdministrarClaves();
+               AdministrarClaves ac1 = new AdministrarClaves();
                vista.txtCodigo.setText(cat.getIdMascota());
                vista.txtNombre.setText(cat.getNombreM());
                vista.txtPeso.setText(Double.toString(cat.getPesoM()));
-               vista.txtDNIpropietario.setText(cat.getDniP());
+               vista.txtDNIpropietario.setText(ac.RecuperarNombre(ac.queryDNI, cat.getpropietarioM()));
                
                vista.cbxSexoMascota.setSelectedItem(cat.getSexoM());
                
-               AdministrarClaves ac = new AdministrarClaves();
-               vista.cbxTipoMascota.setSelectedItem(ac.RecuperarNombre(ac.queryTipoMasc, cat.getTipoM()));
+               vista.cbxTipoMascota.setSelectedItem(ac1.RecuperarNombre(ac1.queryTipoMasc, cat.getTipoM()));
                
                vista.spnEdad.setValue(cat.getEdadM());
                
