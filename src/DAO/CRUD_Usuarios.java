@@ -40,8 +40,8 @@ public class CRUD_Usuarios extends ConectarBD{
     public void InsertarUsuario(Usuarios u){
         try{
             //preparando la consulta con parametros a travez de los simbolos de interrogante(?)
-            ps=con.prepareStatement("insert into USUARIOS (apellidos,nombres,correo,clave,idRol,esActivo)" +
-                                    " values (?,?,?,?,?,?);");
+            ps=con.prepareStatement("INSERT INTO USUARIOS (apellidos,nombres,correo,clave,idRol,esActivo)" +
+                                    " VALUES (?,?,?,?,?,?);");
             //actualizando los parametros
             ps.setString(1, u.getApellidos());
             ps.setString(2, u.getNombres());
@@ -62,9 +62,9 @@ public class CRUD_Usuarios extends ConectarBD{
     public Usuarios RecuperarUsuario(String idU){
         Usuarios u=null;
         try{
-            rs=st.executeQuery("select u.idUsuario,u.apellidos,u.nombres,u.correo,u.clave,u.idRol,u.esActivo"+
-                              " from USUARIOS u" +
-                              " where u.idUsuario='"+idU+"';");
+            rs=st.executeQuery("SELECT u.idUsuario,u.apellidos,u.nombres,u.correo,u.clave,u.idRol,u.esActivo"+
+                              " FROM USUARIOS u" +
+                              " WHERE u.idUsuario='"+idU+"';");
             if(rs.next()){
                 u=new Usuarios();
                 u.setIdUsuario(rs.getInt(1));
@@ -86,9 +86,9 @@ public class CRUD_Usuarios extends ConectarBD{
     public Usuarios RecuperarUsuario2(int idU){
         Usuarios u=null;
         try{
-            rs=st.executeQuery("select u.idUsuario,u.apellidos,u.nombres,u.correo,u.clave,u.idRol,u.esActivo,u.imagen"+
-                              " from USUARIOS u" +
-                              " where u.idUsuario='"+idU+"';");
+            rs=st.executeQuery("SELECT u.idUsuario,u.apellidos,u.nombres,u.correo,u.clave,u.idRol,u.esActivo,u.imagen"+
+                              " FROM USUARIOS u" +
+                              " WHERE u.idUsuario='"+idU+"';");
             if(rs.next()){
                 u=new Usuarios();
                 u.setIdUsuario(rs.getInt(1));
@@ -114,7 +114,7 @@ public class CRUD_Usuarios extends ConectarBD{
     //metodo que actualiza un registro de usuario
     public void ActualizarUsuario(Usuarios u){
         try{
-            ps=con.prepareStatement("update USUARIOS u set u.apellidos=?,u.nombres=?,u.correo=?,u.clave=?,u.idRol=?,u.esActivo=? where u.idUsuario=?;");
+            ps=con.prepareStatement("UPDATE USUARIOS u set u.apellidos=?,u.nombres=?,u.correo=?,u.clave=?,u.idRol=?,u.esActivo=? WHERE u.idUsuario=?;");
             ps.setString(1, u.getApellidos());
             ps.setString(2, u.getNombres());
             ps.setString(3, u.getCorreo());
