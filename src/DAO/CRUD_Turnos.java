@@ -17,8 +17,9 @@ public class CRUD_Turnos extends ConectarBD{
         Turno cat=new Turno();
         int cantreg=0;
         try{
-            rs=st.executeQuery("select t.idTurno,t.hora,t.descripcion" +
-                              " from TURNO t;");
+            rs=st.executeQuery("SELECT t.idTurno,t.hora,t.descripcion" +
+                              " FROM TURNO t" +
+                              " WHERE t.estado=1");
             while(rs.next()){
                 cantreg++;
                 cat.setIdTurno(rs.getInt(1));
@@ -33,11 +34,11 @@ public class CRUD_Turnos extends ConectarBD{
     }//fin metodo
     
     //metodo que inserta registros a la tabla
-    public void InsertarCategoria(Turno cat){
+    public void InsertarTurno(Turno cat){
         try{
             //preparando la consulta con parametros a travez de los simbolos de interrogante(?)
-            ps=con.prepareStatement("insert into TURNO(hora,estado,descripcion)" +
-                                    " values (?,1,?);");
+            ps=con.prepareStatement("INSERT INTO TURNO(hora,estado,descripcion)" +
+                                    " VALUES (?,1,?);");
             //actualizando los parametros
             ps.setString(1, cat.getHora());
             ps.setString(2, cat.getDesripcion());
@@ -51,12 +52,12 @@ public class CRUD_Turnos extends ConectarBD{
     }//fin metodo
     
     //metodo que recupera un registro de la tabla por medio del id
-    public Turno RecuperarCategoria(int idcat){
+    public Turno RecuperarTurno(int idcat){
         Turno cat=null;
         try{
-            rs=st.executeQuery("select t.idTurno,t.hora,t.descripcion"+
-                              " from TURNO t" +
-                              " where t.idTurno='"+idcat+"';");
+            rs=st.executeQuery("SELECT t.idTurno,t.hora,t.descripcion"+
+                              " FROM TURNO t" +
+                              " WHERE t.idTurno='"+idcat+"';");
             if(rs.next()){
                 cat=new Turno();
                 cat.setIdTurno(rs.getInt(1));
@@ -71,9 +72,9 @@ public class CRUD_Turnos extends ConectarBD{
     }//fin metodo
     
     //metodo que actualiza un registro de categoria
-    public void ActualizarCategoria(Turno cat){
+    public void ActualizarTurno(Turno cat){
         try{
-            ps=con.prepareStatement("update TURNO t set t.hora=?,t.descripcion=? where t.idTurno=?;");
+            ps=con.prepareStatement("UPDATE TURNO t set t.hora=?,t.descripcion=? WHERE t.idTurno=?;");
             ps.setString(1, cat.getHora());
             ps.setString(2, cat.getDesripcion());
             ps.setInt(3, cat.getIdTurno());
@@ -86,9 +87,9 @@ public class CRUD_Turnos extends ConectarBD{
     }//fin metodo
     
     //metodo que elimina una categoria
-    public void InhabilitarCategoria(int idcat){
+    public void InhabilitarTurno(int idcat){
         try{
-            ps=con.prepareStatement("delete from TURNO where idTurno=?");
+            ps=con.prepareStatement("UPDATE TURNO t set t.estado=0 WHERE t.idTurno=?;");
             ps.setInt(1, idcat);
             ps.executeUpdate();
             Mensajes.M1("Resgistro eliminado correctamente");
