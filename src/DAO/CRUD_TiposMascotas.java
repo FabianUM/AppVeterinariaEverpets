@@ -17,8 +17,8 @@ public class CRUD_TiposMascotas extends ConectarBD{
         TiposMascotas cat=new TiposMascotas();
         int cantreg=0;
         try{
-            rs=st.executeQuery("select t.idTipoMascota, t.Nombre_TipoMascota" +
-                              " from TIPO_MASCOTA t;");
+            rs=st.executeQuery("SELECT t.idTipoMascota, t.Nombre_TipoMascota" +
+                              " FROM TIPO_MASCOTA t;");
             while(rs.next()){
                 cantreg++;
                 cat.setIdTipo(rs.getInt(1));
@@ -32,11 +32,11 @@ public class CRUD_TiposMascotas extends ConectarBD{
     }//fin metodo
     
     //metodo que inserta registros a la tabla
-    public void InsertarCategoria(TiposMascotas cat){
+    public void InsertarTipoMascota(TiposMascotas cat){
         try{
             //preparando la consulta con parametros a travez de los simbolos de interrogante(?)
-            ps=con.prepareStatement("insert into TIPO_MASCOTA (Nombre_TipoMascota)" +
-                                    " values (?);");
+            ps=con.prepareStatement("INSERT INTO TIPO_MASCOTA (Nombre_TipoMascota)" +
+                                    " VALUES (?);");
             //actualizando los parametros
             ps.setString(1, cat.getNombre());
             //actualizamos y ejecutamos la consulta
@@ -49,12 +49,12 @@ public class CRUD_TiposMascotas extends ConectarBD{
     }//fin metodo
     
     //metodo que recupera un registro de la tabla por medio del id
-    public TiposMascotas RecuperarCategoria(int idcat){
+    public TiposMascotas RecuperarTipoMascota(int idcat){
         TiposMascotas cat=null;
         try{
-            rs=st.executeQuery("select t.idTipoMascota, t.Nombre_TipoMascota" +
-                              " from TIPO_MASCOTA t" +
-                              " where t.idTipoMascota="+idcat+";");
+            rs=st.executeQuery("SELECT t.idTipoMascota, t.Nombre_TipoMascota" +
+                              " FROM TIPO_MASCOTA t" +
+                              " WHERE t.idTipoMascota="+idcat+";");
             if(rs.next()){
                 cat=new TiposMascotas();
                 cat.setIdTipo(rs.getInt(1));
@@ -68,9 +68,9 @@ public class CRUD_TiposMascotas extends ConectarBD{
     }//fin metodo
     
     //metodo que actualiza un registro de categoria
-    public void ActualizarCategoria(TiposMascotas cat){
+    public void ActualizarTipoMascota(TiposMascotas cat){
         try{
-            ps=con.prepareStatement("update TIPO_MASCOTA t set t.Nombre_TipoMascota=? where t.idTipoMascota=?;");
+            ps=con.prepareStatement("UPDATE TIPO_MASCOTA t set t.Nombre_TipoMascota=? WHERE t.idTipoMascota=?;");
             ps.setString(1, cat.getNombre());
             ps.setInt(2, cat.getIdTipo());
             ps.executeUpdate();
@@ -82,9 +82,9 @@ public class CRUD_TiposMascotas extends ConectarBD{
     }//fin metodo
     
     //metodo que elimina una categoria
-    public void InhabilitarCategoria(int idcat){
+    public void InhabilitarTipoMascota(int idcat){
         try{
-            ps=con.prepareStatement("delete from TIPO_MASCOTA where idTipoMascota=?");
+            ps=con.prepareStatement("DELETE FROM TIPO_MASCOTA WHERE idTipoMascota=?");
             ps.setInt(1, idcat);
             ps.executeUpdate();
             Mensajes.M1("Resgistro eliminado correctamente");
