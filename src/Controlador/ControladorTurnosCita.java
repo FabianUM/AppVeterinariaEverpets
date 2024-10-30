@@ -37,14 +37,14 @@ public class ControladorTurnosCita implements ActionListener{
        if(e.getSource()==vista.btnRegistrar){
            cat=ProcesosTurnosCita.LeerDatos(vista);
            crud=new CRUD_Turnos();
-           crud.InsertarCategoria(cat);
+           crud.InsertarTurno(cat);
            ActualizarForma();
        }
        
        if(e.getSource()==vista.btnConsultar){
            int idcat=Mensajes.M2("Ingrese el id a buscar: ");
            crud=new CRUD_Turnos();
-           cat=crud.RecuperarCategoria(idcat);
+           cat=crud.RecuperarTurno(idcat);
            if(cat==null){
                Mensajes.M1("El id "+idcat+" no existe en la tabla categorias...");
            }else{
@@ -60,7 +60,7 @@ public class ControladorTurnosCita implements ActionListener{
            cat=ProcesosTurnosCita.LeerDatos(vista);
            cat.setIdTurno(Integer.parseInt(vista.txtID.getText()));
            crud=new CRUD_Turnos();
-           crud.ActualizarCategoria(cat);
+           crud.ActualizarTurno(cat);
            ActualizarForma();
        }
        
@@ -69,7 +69,7 @@ public class ControladorTurnosCita implements ActionListener{
            if(respuesta==0){
                int idcat=Integer.parseInt(vista.txtID.getText());
                crud=new CRUD_Turnos();
-               crud.InhabilitarCategoria(idcat);
+               crud.InhabilitarTurno(idcat);
                ActualizarForma();
            }
        }
