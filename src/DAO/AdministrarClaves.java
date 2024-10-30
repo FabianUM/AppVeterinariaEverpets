@@ -7,6 +7,7 @@ public class AdministrarClaves extends ConectarBD{
     public String consultaServicio="select s.idServicios from SERVICIOS s where s.NombreServicio=?;";
     public String consultaTurno="select t.idTurno from TURNO t where t.hora=?;";
     public String consultaRol="select r.idRol from ROLES r where r.descripcion=?;";
+    public String consultaDNI="select idPropietario from PROPIETARIO where DNI=?;";
     
     public AdministrarClaves(){}
     
@@ -30,6 +31,7 @@ public class AdministrarClaves extends ConectarBD{
     public String queryServicio="select NombreServicio from SERVICIOS where idServicios=?;";
     public String queryTurno="select hora from TURNO where idTurno=?;";
     public String queryRol="select descripcion from ROLES where idRol=?;";
+    public String queryDNI="select DNI from PROPIETARIO where idPropietario=?;";
     
     //metodo que recupera el nombre a traves de la id
     public String RecuperarNombre(String consulta, int id){
