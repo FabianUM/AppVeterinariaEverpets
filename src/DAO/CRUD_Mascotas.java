@@ -19,8 +19,7 @@ public class CRUD_Mascotas extends ConectarBD{
         try{
             rs=st.executeQuery("SELECT m.idMascota, m.Nombre_mascota, m.Sexo_mascota, m.TipoMascota, m.Edad_mascota, m.Peso_mascota, m.idPropietario" +
                               " FROM MASCOTA m" +
-                              " INNER JOIN PROPIETARIO p on m.idPropietario = p.idPropietario" +
-                              " WHERE m.idMascota='';");
+                              " INNER JOIN PROPIETARIO p on m.idPropietario = p.idPropietario;");
             while(rs.next()){
                 cantreg++;
                 cat.setIdMascota(rs.getString(1));
