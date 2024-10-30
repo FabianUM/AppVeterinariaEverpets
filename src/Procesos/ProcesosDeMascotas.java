@@ -41,17 +41,20 @@ public class ProcesosDeMascotas {
     //metodo que lee los datos de la clase Veterinarios
     public static Mascotas LeerDatos(FrmDeMascotas f2){
          Mascotas cat =  new Mascotas();
+         AdministrarClaves ac = new AdministrarClaves();
+         AdministrarClaves ac1 = new AdministrarClaves();
          
          cat.setNombreM(f2.txtNombre.getText());
          cat.setPesoM(Double.parseDouble(f2.txtPeso.getText()));
-         cat.setDniP(f2.txtDNIpropietario.getText());
+         
+         cat.setpropietarioM(ac.RecuperarID(ac.consultaDNI, f2.txtDNIpropietario.getText()));
          
          cat.setSexoM(f2.cbxSexoMascota.getSelectedItem().toString());
          
          cat.setEdadM(Integer.parseInt(f2.spnEdad.getValue().toString()));
          
-         AdministrarClaves ac = new AdministrarClaves();
-         cat.setTipoM(ac.RecuperarID(ac.consultaTipoMasc, f2.cbxTipoMascota.getSelectedItem().toString()));
+         
+         cat.setTipoM(ac1.RecuperarID(ac1.consultaTipoMasc, f2.cbxTipoMascota.getSelectedItem().toString()));
          
          
          return cat;
