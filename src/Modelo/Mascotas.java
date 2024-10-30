@@ -9,7 +9,7 @@ public class Mascotas {
     private int tipoM;
     private int edadM;
     private double pesoM;
-    private String dniP;
+    private int propietarioM;
     public Mascotas(){}
 
     public String getIdMascota()                        {return idMascota;}
@@ -24,16 +24,18 @@ public class Mascotas {
     public void setEdadM(int edadM)                     {this.edadM = edadM;}
     public double getPesoM()                            {return pesoM;}
     public void setPesoM(double pesoM)                  {this.pesoM = pesoM;}
-    public String getDniP()                             {return dniP;}
-    public void setDniP(String dniP)                    {this.dniP = dniP;}
+    public int getpropietarioM()                        {return propietarioM;}
+    public void setpropietarioM(int propietarioM)      {this.propietarioM = propietarioM;}
+    
     
     public Object[] RegistroMascotas(int numeracion){
         
         AdministrarClaves ac = new AdministrarClaves();
+        AdministrarClaves ac1 = new AdministrarClaves();
         
         Object[] fila={numeracion,idMascota,nombreM,
                        ac.RecuperarNombre(ac.queryTipoMasc, tipoM),
-                       sexoM,edadM,pesoM,dniP};
+                       sexoM,edadM,pesoM,ac1.RecuperarNombre(ac1.queryDNI, propietarioM)};
         return fila;
    }
     
