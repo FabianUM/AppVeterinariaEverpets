@@ -17,8 +17,8 @@ public class CRUD_Propietarios extends ConectarBD{
         Propietarios cat=new Propietarios();
         int cantreg=0;
         try{
-            rs=st.executeQuery("select p.DNI,p.Nombres,p.Apellidos,p.Direccion,p.Telefono,p.Correo" +
-                              " from PROPIETARIO p;");
+            rs=st.executeQuery("SELECT p.DNI,p.Nombres,p.Apellidos,p.Direccion,p.Telefono,p.Correo" +
+                              " FROM PROPIETARIO p;");
             while(rs.next()){
                 cantreg++;
                 cat.setDNI(rs.getString(1));
@@ -36,11 +36,11 @@ public class CRUD_Propietarios extends ConectarBD{
     }//fin metodo
     
     //metodo que inserta registros a la tabla
-    public void InsertarCategoria(Propietarios cat){
+    public void InsertarPropietario(Propietarios cat){
         try{
             //preparando la consulta con parametros a travez de los simbolos de interrogante(?)
-            ps=con.prepareStatement("insert into PROPIETARIO" +
-                                    " values (?,?,?,?,?,?);");
+            ps=con.prepareStatement("INSERT INTO PROPIETARIO" +
+                                    " VALUES (?,?,?,?,?,?);");
             //actualizando los parametros
             ps.setString(1, cat.getDNI());
             ps.setString(2, cat.getNombres());
@@ -58,12 +58,12 @@ public class CRUD_Propietarios extends ConectarBD{
     }//fin metodo
     
     //metodo que recupera un registro de la tabla por medio del id
-    public Propietarios RecuperarCategoria(String idcat){
+    public Propietarios RecuperarPropietario(String idcat){
         Propietarios cat=null;
         try{
-            rs=st.executeQuery("select p.DNI,p.Nombres,p.Apellidos,p.Direccion,p.Telefono,p.Correo"+
-                              " from PROPIETARIO p" +
-                              " where p.DNI='"+idcat+"';");
+            rs=st.executeQuery("SELECT p.DNI,p.Nombres,p.Apellidos,p.Direccion,p.Telefono,p.Correo"+
+                              " FROM PROPIETARIO p" +
+                              " WHERE p.DNI='"+idcat+"';");
             if(rs.next()){
                 cat=new Propietarios();
                 cat.setDNI(rs.getString(1));
@@ -81,9 +81,9 @@ public class CRUD_Propietarios extends ConectarBD{
     }//fin metodo
     
     //metodo que actualiza un registro de categoria
-    public void ActualizarCategoria(Propietarios cat){
+    public void ActualizarPropietario(Propietarios cat){
         try{
-            ps=con.prepareStatement("update PROPIETARIO p set p.DNI=?,p.Nombres=?,p.Apellidos=?,p.Direccion=?,p.Telefono=?,p.Correo=? where p.DNI=?;");
+            ps=con.prepareStatement("UPDATE PROPIETARIO p SET p.DNI=?,p.Nombres=?,p.Apellidos=?,p.Direccion=?,p.Telefono=?,p.Correo=? WHERE p.DNI=?;");
             ps.setString(1, cat.getDNI());
             ps.setString(2, cat.getNombres());
             ps.setString(3, cat.getApellidos());
@@ -103,9 +103,9 @@ public class CRUD_Propietarios extends ConectarBD{
     public Propietarios RecuperarNombre(String idcat, JLabel etiqueta){
         Propietarios cat=null;
         try{
-            rs=st.executeQuery("select p.Nombres,p.Apellidos"+
-                              " from PROPIETARIO p" +
-                              " where p.DNI='"+idcat+"';");
+            rs=st.executeQuery("SELECT p.Nombres,p.Apellidos"+
+                              " FROM PROPIETARIO p" +
+                              " WHERE p.DNI='"+idcat+"';");
             if(rs.next()){
                 cat=new Propietarios();
                 cat.setNombres(rs.getString(1));
@@ -123,9 +123,9 @@ public class CRUD_Propietarios extends ConectarBD{
     public Propietarios DatosCatnetP(String idcat, JLabel e1, JLabel e2, JLabel e3){
         Propietarios cat=null;
         try{
-            rs=st.executeQuery("select p.Nombres,p.Apellidos,p.Direccion,p.Telefono"+
-                              " from PROPIETARIO p" +
-                              " where p.DNI='"+idcat+"';");
+            rs=st.executeQuery("SELECT p.Nombres,p.Apellidos,p.Direccion,p.Telefono"+
+                              " FROM PROPIETARIO p" +
+                              " WHERE p.DNI='"+idcat+"';");
             if(rs.next()){
                 cat=new Propietarios();
                 cat.setNombres(rs.getString(1));

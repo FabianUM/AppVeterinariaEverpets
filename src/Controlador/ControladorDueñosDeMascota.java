@@ -36,14 +36,14 @@ public class ControladorDueñosDeMascota implements ActionListener{
         if(e.getSource()==vista.btnRegistrar){
            cat=ProcesosDueñosMascotas.LeerDatos(vista);
            crud=new CRUD_Propietarios();
-           crud.InsertarCategoria(cat);
+           crud.InsertarPropietario(cat);
            ActualizarForma();
        }
         
         if(e.getSource()==vista.btnConsultar){
            String idcat=Mensajes.M4("Ingrese el DNI a buscar: ");
            crud=new CRUD_Propietarios();
-           cat=crud.RecuperarCategoria(idcat);
+           cat=crud.RecuperarPropietario(idcat);
            if(cat==null){
                Mensajes.M1("El DNI "+idcat+" no existe en la tabla categorias...");
            }else{
@@ -61,7 +61,7 @@ public class ControladorDueñosDeMascota implements ActionListener{
         if(e.getSource()==vista.btnActualizar){
            cat=ProcesosDueñosMascotas.LeerDatos(vista);
            crud=new CRUD_Propietarios();
-           crud.ActualizarCategoria(cat);
+           crud.ActualizarPropietario(cat);
            ActualizarForma();
        }
         
