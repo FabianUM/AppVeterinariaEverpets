@@ -67,12 +67,14 @@ public class ControladorImprimirCarnetMascota implements ActionListener{
            if(cat==null){
                Mensajes.M1("No existe ninguna mascota con el codigo "+cat);
            }else{
+               AdministrarClaves ac = new AdministrarClaves();
+               AdministrarClaves ac1 = new AdministrarClaves();
+               
                vista.carnet1.lblCodigo.setText(cat.getIdMascota());
-               vista.carnet1.lblDNI.setText(cat.getDniP());
                vista.carnet1.lblMascota.setText(cat.getNombreM());
                
-               AdministrarClaves ac = new AdministrarClaves();
-               vista.carnet1.lblTipo.setText(ac.RecuperarNombre(ac.queryTipoMasc, cat.getTipoM()));
+               vista.carnet1.lblDNI.setText(ac.RecuperarNombre(ac.queryDNI, cat.getpropietarioM()));
+               vista.carnet1.lblTipo.setText(ac1.RecuperarNombre(ac1.queryTipoMasc, cat.getTipoM()));
                
                vista.carnet1.lblSexo.setText(cat.getSexoM());
            }
