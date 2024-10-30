@@ -6,10 +6,12 @@ import Modelo.*;
 import Vista.*;
 import Procesos.*;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
+import java.awt.event.*;
+/*import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;*/
+import java.awt.print.*;
+/*import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;*/
 import javax.swing.*;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -92,6 +94,7 @@ public class ControladorImprimirCarnetMascota implements ActionListener{
             if(job.printDialog()){
                 try{
                     job.print();
+                    ActualizarForma();
                 }catch(PrinterException ex){
                     
                 }
