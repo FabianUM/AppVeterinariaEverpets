@@ -37,14 +37,14 @@ public class ControladorVeterinarios implements ActionListener{
         if(e.getSource()==vista.btnRegistrar){
            cat=ProcesosVeterinarios.LeerDatos(vista);
            crud=new CRUD_Veterinarios();
-           crud.InsertarCategoria(cat);
+           crud.InsertarVeterinario(cat);
            ActualizarForma();
        }
         
         if(e.getSource()==vista.btnConsultar){
            String idcat=Mensajes.M4("Ingrese el codigo a buscar: ");
            crud=new CRUD_Veterinarios();
-           cat=crud.RecuperarCategoria(idcat);
+           cat=crud.RecuperarVeterinario(idcat);
            if(cat==null){
                Mensajes.M1("El codigo "+idcat+" no existe en la tabla categorias...");
            }else{
@@ -67,7 +67,7 @@ public class ControladorVeterinarios implements ActionListener{
            cat=ProcesosVeterinarios.LeerDatos(vista);
            cat.setIdVeterinario(vista.txtCodigo.getText());
            crud=new CRUD_Veterinarios();
-           crud.ActualizarCategoria(cat);
+           crud.ActualizarVeterinario(cat);
            ActualizarForma();
        }
         
@@ -76,7 +76,7 @@ public class ControladorVeterinarios implements ActionListener{
            if(respuesta==0){
                String idcat=vista.txtCodigo.getText();
                crud=new CRUD_Veterinarios();
-               crud.InhabilitarCategoria(idcat);
+               crud.InhabilitarVeterinario(idcat);
                ActualizarForma();
            }
        }
