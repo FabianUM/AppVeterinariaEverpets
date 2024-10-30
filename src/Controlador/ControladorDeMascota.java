@@ -39,14 +39,14 @@ public class ControladorDeMascota implements ActionListener{
         if(e.getSource()==vista.btnRegistrar){
            cat=ProcesosDeMascotas.LeerDatos(vista);
            crud=new CRUD_Mascotas();
-           crud.InsertarCategoria(cat);
+           crud.InsertarMascota(cat);
            ActualizarForma();
        }
         
         if(e.getSource()==vista.btnConsultar){
            String idcat=Mensajes.M4("Ingrese el id a buscar: ");
            crud=new CRUD_Mascotas();
-           cat=crud.RecuperarCategoria(idcat);
+           cat=crud.RecuperarMascota(idcat);
            if(cat==null){
                Mensajes.M1("El id "+idcat+" no existe en la tabla categorias...");
            }else{
@@ -71,7 +71,7 @@ public class ControladorDeMascota implements ActionListener{
            cat=ProcesosDeMascotas.LeerDatos(vista);
            cat.setIdMascota(vista.txtCodigo.getText());
            crud=new CRUD_Mascotas();
-           crud.ActualizarCategoria(cat);
+           crud.ActualizarMascota(cat);
            ActualizarForma();
        }
         
