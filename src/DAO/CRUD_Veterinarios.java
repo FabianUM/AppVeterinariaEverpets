@@ -17,8 +17,8 @@ public class CRUD_Veterinarios extends ConectarBD{
         Veterinarios cat=new Veterinarios();
         int cantreg=0;
         try{
-            rs=st.executeQuery("select v.idVeterinario, v.NombresVeterinario, v.ApellidosVeterinario, v.Sueldo, v.idTipoMascota, v.idServicios" +
-                              " from VETERINARIO v;");
+            rs=st.executeQuery("SELECT v.idVeterinario, v.NombresVeterinario, v.ApellidosVeterinario, v.Sueldo, v.idTipoMascota, v.idServicios" +
+                              " FROM VETERINARIO v;");
             while(rs.next()){
                 cantreg++;
                 cat.setIdVeterinario(rs.getString(1));
@@ -36,11 +36,11 @@ public class CRUD_Veterinarios extends ConectarBD{
     }//fin metodo
     
     //metodo que inserta registros a la tabla
-    public void InsertarCategoria(Veterinarios cat){
+    public void InsertarVeterinario(Veterinarios cat){
         try{
             //preparando la consulta con parametros a travez de los simbolos de interrogante(?)
-            ps=con.prepareStatement("insert into VETERINARIO (NombresVeterinario,ApellidosVeterinario,Sueldo,estado,idTipoMascota,idServicios)" +
-                                    " values (?,?,?,1,?,?);");
+            ps=con.prepareStatement("INSERT INTO VETERINARIO (NombresVeterinario,ApellidosVeterinario,Sueldo,estado,idTipoMascota,idServicios)" +
+                                    " VALUES (?,?,?,1,?,?);");
             //actualizando los parametros
             ps.setString(1, cat.getNombre());
             ps.setString(2, cat.getApellido());
@@ -57,12 +57,12 @@ public class CRUD_Veterinarios extends ConectarBD{
     }//fin metodo
     
     //metodo que recupera un registro de la tabla por medio del id
-    public Veterinarios RecuperarCategoria(String idcat){
+    public Veterinarios RecuperarVeterinario(String idcat){
         Veterinarios cat=null;
         try{
-            rs=st.executeQuery("select v.idVeterinario,v.NombresVeterinario,v.ApellidosVeterinario,v.Sueldo,v.idTipoMascota,v.idServicios"+
-                              " from VETERINARIO v" +
-                              " where v.idVeterinario='"+idcat+"';");
+            rs=st.executeQuery("SELECT v.idVeterinario,v.NombresVeterinario,v.ApellidosVeterinario,v.Sueldo,v.idTipoMascota,v.idServicios"+
+                              " FROM VETERINARIO v" +
+                              " WHERE v.idVeterinario='"+idcat+"';");
             if(rs.next()){
                 cat=new Veterinarios();
                 cat.setIdVeterinario(rs.getString(1));
@@ -80,9 +80,9 @@ public class CRUD_Veterinarios extends ConectarBD{
     }//fin metodo
     
     //metodo que actualiza un registro de categoria
-    public void ActualizarCategoria(Veterinarios cat){
+    public void ActualizarVeterinario(Veterinarios cat){
         try{
-            ps=con.prepareStatement("update VETERINARIO v set v.NombresVeterinario=?, v.ApellidosVeterinario=?, v.Sueldo=?, v.idTipoMascota=? ,v.idServicios=? where v.idVeterinario=?;");
+            ps=con.prepareStatement("UPDATE VETERINARIO v set v.NombresVeterinario=?, v.ApellidosVeterinario=?, v.Sueldo=?, v.idTipoMascota=? ,v.idServicios=? WHERE v.idVeterinario=?;");
             ps.setString(1, cat.getNombre());
             ps.setString(2, cat.getApellido());
             ps.setDouble(3, cat.getSueldo());
@@ -98,9 +98,9 @@ public class CRUD_Veterinarios extends ConectarBD{
     }//fin metodo
     
     //metodo que elimina una categoria
-    public void InhabilitarCategoria(String idcat){
+    public void InhabilitarVeterinario(String idcat){
         try{
-            ps=con.prepareStatement("delete from VETERINARIO where idVeterinario=?");
+            ps=con.prepareStatement("DELETE FROM VETERINARIO WHERE idVeterinario=?");
             ps.setString(1, idcat);
             ps.executeUpdate();
             Mensajes.M1("Resgistro eliminado correctamente");
