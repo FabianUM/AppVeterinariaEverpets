@@ -17,8 +17,10 @@ public class CRUD_Mascotas extends ConectarBD{
         Mascotas cat=new Mascotas();
         int cantreg=0;
         try{
-            rs=st.executeQuery("select m.idMascota, m.Nombre_mascota, m.Sexo_mascota, m.TipoMascota, m.Edad_mascota, m.Peso_mascota, m.DNI" +
-                              " from MASCOTA m;");
+            rs=st.executeQuery("SELECT m.idMascota, m.Nombre_mascota, m.Sexo_mascota, m.TipoMascota, m.Edad_mascota, m.Peso_mascota, m.idPropietario" +
+                              " FROM MASCOTA m" +
+                              " INNER JOIN PROPIETARIO p on m.idPropietario = p.idPropietario" +
+                              " WHERE m.idMascota='';");
             while(rs.next()){
                 cantreg++;
                 cat.setIdMascota(rs.getString(1));
@@ -37,11 +39,11 @@ public class CRUD_Mascotas extends ConectarBD{
     }//fin metodo
     
     //metodo que inserta registros a la tabla
-    public void InsertarCategoria(Mascotas cat){
+    public void InsertarMascota(Mascotas cat){
         try{
             //preparando la consulta con parametros a travez de los simbolos de interrogante(?)
-            ps=con.prepareStatement("insert into MASCOTA (Nombre_mascota,Sexo_mascota,TipoMascota,Edad_mascota,Peso_mascota,DNI)" +
-                                    " values (?,?,?,?,?,?);");
+            ps=con.prepareStatement("INSERT INTO MASCOTA (Nombre_mascota,Sexo_mascota,TipoMascota,Edad_mascota,Peso_mascota,DNI)" +
+                                    " VALUES (?,?,?,?,?,?);");
             //actualizando los parametros
             ps.setString(1, cat.getNombreM());
             ps.setString(2, cat.getSexoM());
@@ -59,12 +61,12 @@ public class CRUD_Mascotas extends ConectarBD{
     }//fin metodo
     
     //metodo que recupera un registro de la tabla por medio del id
-    public Mascotas RecuperarCategoria(String idcat){
+    public Mascotas RecuperarMascota(String idcat){
         Mascotas cat=null;
         try{
-            rs=st.executeQuery("select m.idMascota, m.Nombre_mascota, m.Sexo_mascota, m.TipoMascota, m.Edad_mascota, m.Peso_mascota, m.DNI"+
-                              " from MASCOTA m" +
-                              " where m.idMascota='"+idcat+"';");
+            rs=st.executeQuery("SELECT m.idMascota, m.Nombre_mascota, m.Sexo_mascota, m.TipoMascota, m.Edad_mascota, m.Peso_mascota, m.DNI"+
+                              " FROM MASCOTA m" +
+                              " WHERE m.idMascota='"+idcat+"';");
             if(rs.next()){
                 cat=new Mascotas();
                 cat.setIdMascota(rs.getString(1));
@@ -83,9 +85,9 @@ public class CRUD_Mascotas extends ConectarBD{
     }//fin metodo
     
     //metodo que actualiza un registro de categoria
-    public void ActualizarCategoria(Mascotas cat){
+    public void ActualizarMascota(Mascotas cat){
         try{
-            ps=con.prepareStatement("update MASCOTA m set m.Nombre_mascota=?, m.Sexo_mascota=?, m.TipoMascota=?, m.Edad_mascota=?, m.Peso_mascota=?, m.DNI=? where m.idMascota=?;");
+            ps=con.prepareStatement("UPDATE MASCOTA m SET m.Nombre_mascota=?, m.Sexo_mascota=?, m.TipoMascota=?, m.Edad_mascota=?, m.Peso_mascota=?, m.DNI=? WHERE m.idMascota=?;");
             ps.setString(1, cat.getNombreM());
             ps.setString(2, cat.getSexoM());
             ps.setInt(3, cat.getTipoM());
@@ -105,9 +107,9 @@ public class CRUD_Mascotas extends ConectarBD{
     public Mascotas DatosCarnetM(String idcat, JLabel e1, JLabel e2, JLabel e3, JLabel e4, JLabel e5){
         Mascotas cat=null;
         try{
-            rs=st.executeQuery("select m.IdMascota,m.DNI,m.Nombre_mascota,m.TipoMascota,m.Sexo_mascota"+
-                              " from MASCOTA m" +
-                              " where m.IdMascota='"+idcat+"';");
+            rs=st.executeQuery("SELECT m.IdMascota,m.DNI,m.Nombre_mascota,m.TipoMascota,m.Sexo_mascota"+
+                              " FROM MASCOTA m" +
+                              " WHERE m.IdMascota='"+idcat+"';");
             if(rs.next()){
                 cat=new Mascotas();
                 cat.setIdMascota(rs.getString(1));
