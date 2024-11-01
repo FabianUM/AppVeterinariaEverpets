@@ -62,7 +62,6 @@ public class ProcesosReservarCita {
     public static Citas LeerDatos(ReservarCita f3){
          Citas cat =  new Citas();
          
-         cat.setDni(f3.txtDNI.getText());
          cat.setDescripcion(f3.txaDescripcion.getText());
          cat.setPrecio(Double.parseDouble(f3.txtPrecio.getText()));
          
