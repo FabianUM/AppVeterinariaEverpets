@@ -42,7 +42,11 @@ public class ConsultarCita {
     
     public Object[] RegistroCitas(int num){
         
-        Object[] fila = {num,idCita,Nombres+" "+Apellidos,dni,idMascota,nombreM,
+        AdministrarClaves ac=new AdministrarClaves();
+        
+        Object[] fila = {num,idCita,Nombres+" "+Apellidos,
+                         ac.RecuperarCodigo(ac.consultaDNI2, idMascota),
+                         idMascota,nombreM,
                          NombreServicio,nombreV,Fecha,Hora,TipoEstado};
         return fila;
     }
