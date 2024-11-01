@@ -38,6 +38,7 @@ public class FrmListaDeCitas extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
         btnTerminados = new javax.swing.JButton();
         btnCancelados = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
 
@@ -49,10 +50,10 @@ public class FrmListaDeCitas extends javax.swing.JInternalFrame {
         jTextField1.setText("LISTA DE CITAS");
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel1.setText("CITAS REGISTRADAS EN LA VETERINARIA");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
+        jLabel1.setText("Ingresa ID Masota");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 90, -1));
 
         tblListaCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,6 +106,11 @@ public class FrmListaDeCitas extends javax.swing.JInternalFrame {
         btnCancelados.setText("CANCELADOS");
         jPanel1.add(btnCancelados, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 130, 40));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel2.setText("CITAS REGISTRADAS EN LA VETERINARIA");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,6 +137,7 @@ public class FrmListaDeCitas extends javax.swing.JInternalFrame {
     public javax.swing.JButton btnTodos;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
