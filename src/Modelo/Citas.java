@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Citas {
     private String idCita;
-    private String dni;
+    //private String dni;
     private String idMascota;
     private Date fecha;
     private int idTurno;
@@ -18,8 +18,8 @@ public class Citas {
 
     public String getIdCita()                                   {return idCita;}
     public void setIdCita(String idCita)                        {this.idCita = idCita;}
-    public String getDni()                                      {return dni;}
-    public void setDni(String dni)                              {this.dni = dni;}
+    //public String getDni()                                      {return dni;}
+    //public void setDni(String dni)                              {this.dni = dni;}
     public String getIdMascota()                                {return idMascota;}
     public void setIdMascota(String idMascota)                  {this.idMascota = idMascota;}
     public Date getFecha()                                      {return fecha;}
@@ -39,13 +39,16 @@ public class Citas {
     
     public Object[] RegistroCitas(int num){
         
+        AdministrarClaves ac=new AdministrarClaves();
         AdministrarClaves ac1=new AdministrarClaves();
         AdministrarClaves ac2=new AdministrarClaves();
         AdministrarClaves ac3=new AdministrarClaves();
         
-        Object[] fila = {num,idCita,dni,idMascota,
+        Object[] fila = {num,idCita,
+                         ac.RecuperarCodigo(idCita, idMascota),
+                         idMascota,
                          ac1.RecuperarNombre(ac1.queryServicio, idServicios),
-                         ac2.RecuperarID(ac2.consultaVeterina, idVeterinario),
+                         ac2.RecuperarID(ac2.consultaDNI2, idVeterinario),
                          fecha,
                          ac3.RecuperarNombre(ac3.queryTurno, idTurno),
                          precio};
