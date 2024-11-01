@@ -8,21 +8,21 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class ActualizarCombos extends ConectarBD{
-    public String conultaTipoMasc="select t.Nombre_TipoMascota" +
-                                 " from TIPO_MASCOTA t" +
-                                 " order by 1;";
+    public String conultaTipoMasc="SELECT t.Nombre_TipoMascota" +
+                                 " FROM TIPO_MASCOTA t" +
+                                 " ORDER BY 1;";
     
-    public String conultaTurno="select t.hora" +
-                              " from TURNO t" +
-                              " order by 1;";
+    public String conultaTurno="SELECT t.hora" +
+                              " FROM TURNO t" +
+                              " ORDER BY 1;";
     
-    public String conultaServicio="select distinct s.NombreServicio" +
-                                 " from SERVICIOS s" +
-                                 " order by 1;";
+    public String conultaServicio="SELECT distinct s.NombreServicio" +
+                                 " FROM SERVICIOS s" +
+                                 " ORDER BY 1;";
     
-    public String conultaRol="select distinct r.descripcion" +
-                                 " from roles r" +
-                                 " order by 1;";
+    public String conultaRol="SELECT DISTINCT r.descripcion" +
+                                 " FROM roles r" +
+                                 " ORDER BY 1;";
    
     
     public ActualizarCombos(){}
@@ -40,10 +40,10 @@ public class ActualizarCombos extends ConectarBD{
     
     public void CargarComboxMedicinaPorMascota(JComboBox combo,int idMascota){
         try{
-            rs=st.executeQuery("select m.nombre_medicina" +
-                               " from Medicinas m" +
-                               " where indicador='A'"+
-                               " and m.id_tipomascota="+idMascota+";");
+            rs=st.executeQuery("SELECT m.nombre_medicina" +
+                               " FROM Medicinas m" +
+                               " WHERE indicador='A'"+
+                               " AND m.id_tipomascota="+idMascota+";");
             while(rs.next()){
                 combo.addItem(rs.getString(1));
             }
@@ -52,27 +52,12 @@ public class ActualizarCombos extends ConectarBD{
         }
     }//fin metodo
     
-    /*public void CargarComboxServicio(JComboBox combo,int idTipoMascota){
-        combo.removeAllItems();
-        try{
-            rs=st.executeQuery("select s.idServicios,s.NombreServicio" +
-                               " from SERVICIOS s" +
-                               " where s.TipoMascota="+idTipoMascota+";");
-            while(rs.next()){
-                //lo que va en el combox
-                combo.addItem(rs.getInt(1)+" "+rs.getString(2));
-            }
-        }catch(Exception ex){
-            Mensajes.M1("ERROR no se puede cargar el combo..."+ex);
-        }
-    }//fin metodo*/
-    
     public void CargarComboxServicio1(JComboBox combo,int idTipoMascota){
         combo.removeAllItems();
         try{
-            rs=st.executeQuery("select s.NombreServicio" +
-                               " from SERVICIOS s" +
-                               " where s.TipoMascota="+idTipoMascota+";");
+            rs=st.executeQuery("SELECT s.NombreServicio" +
+                               " FROM SERVICIOS s" +
+                               " WHERE s.idTipoMascota="+idTipoMascota+";");
             while(rs.next()){
                 //lo que va en el combox
                 combo.addItem(rs.getString(1));
@@ -87,9 +72,9 @@ public class ActualizarCombos extends ConectarBD{
         String nombre;
         nombre=(String)c1.getSelectedItem();
         try{
-            rs=st.executeQuery("select m.TipoMascota" +
-                               " from MASCOTA m" +
-                               " where m.Nombre_mascota='"+nombre+"';");
+            rs=st.executeQuery("SELECT m.idTipoMascota" +
+                               " FROM MASCOTA m" +
+                               " WHERE m.Nombre_mascota='"+nombre+"';");
             while(rs.next()){
                 //lo que va en el combox
                 CargarComboxServicio1(combo, rs.getInt(1));
@@ -99,28 +84,13 @@ public class ActualizarCombos extends ConectarBD{
         }
     }//fin metodo
     
-    /*public void CargarComboxMascotaDNI(JComboBox combo, String DNI){
-        try{
-            rs=st.executeQuery("select m.IdMascota, m.Nombre_mascota, m.TipoMascota" +
-                               " from MASCOTA m" +
-                               " where m.DNI="+DNI+
-                               " order by 1;");
-            
-            while(rs.next()){
-                //lo que va en el combox
-                combo.addItem(rs.getString(1)+" Nombre: "+rs.getString(2)+" "+rs.getInt(3));
-            }
-        }catch(Exception ex){
-            Mensajes.M1("ERROR no se puede cargar el combo..."+ex);
-        }
-    }//fin metodo*/
-    
     public void CargarComboxMascotaDNI2(JComboBox combo, String DNI){
         try{
-            rs=st.executeQuery(" select m.Nombre_mascota" +
-                               " from MASCOTA m" +
-                               " where m.DNI="+DNI+
-                               " order by 1;");
+            rs=st.executeQuery(" SELECT m.Nombre_mascota" +
+                               " FROM MASCOTA m" +
+                               " INNER JOIN PROPIETARIO p ON m.idPropietario=p.idPropietario"+
+                               " WHERE p.DNI="+DNI+
+                               " ORDER BY 1;");
             
             while(rs.next()){
                 //lo que va en el combox
@@ -135,9 +105,9 @@ public class ActualizarCombos extends ConectarBD{
     public void CargarComboxVeterinario(JComboBox combo,String servicio){
         combo.removeAllItems();
         try{
-            rs=st.executeQuery("select s.idServicios" +
-                               " from SERVICIOS s" +
-                               " where s.NombreServicio='"+servicio+"';");
+            rs=st.executeQuery("SELECT s.idServicios" +
+                               " FROM SERVICIOS s" +
+                               " WHERE s.NombreServicio='"+servicio+"';");
             while(rs.next()){
                 //lo que va en el combox
                 CargarComboxVeterinario2(combo, rs.getInt(1));
@@ -149,9 +119,9 @@ public class ActualizarCombos extends ConectarBD{
     
     public void CargarComboxVeterinario2(JComboBox combo, int id){
         try{
-            rs=st.executeQuery("select v.NombresVeterinario" +
-                               " from VETERINARIO v" +
-                               " where v.idServicios='"+id+"';");
+            rs=st.executeQuery("SELECT v.NombresVeterinario" +
+                               " FROM VETERINARIO v" +
+                               " WHERE v.idServicios='"+id+"';");
             while(rs.next()){
                 //lo que va en el combox
                 combo.addItem(rs.getString(1));
@@ -168,9 +138,9 @@ public class ActualizarCombos extends ConectarBD{
         AdministrarClaves ad=new AdministrarClaves();
         String codigo=ad.RecuperarCodigo(ad.consultaVeterina, nombre);
         try{
-            rs=st.executeQuery("select v.Sueldo" +
-                               " from VETERINARIO v" +
-                               " where v.idVeterinario='"+codigo+"';");
+            rs=st.executeQuery("SELECT v.Sueldo" +
+                               " FROM VETERINARIO v" +
+                               " WHERE v.idVeterinario='"+codigo+"';");
             while(rs.next()){
                 //lo que va en el combox
                 precio.setText(Double.toString(rs.getDouble(1)));
