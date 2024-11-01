@@ -3,11 +3,11 @@ package DAO;
 import Formatos.*;
 
 public class AdministrarClaves extends ConectarBD{
-    public String consultaTipoMasc="select t.idTipoMascota from TIPO_MASCOTA t where t.Nombre_TipoMascota=?;";
-    public String consultaServicio="select s.idServicios from SERVICIOS s where s.NombreServicio=?;";
-    public String consultaTurno="select t.idTurno from TURNO t where t.hora=?;";
-    public String consultaRol="select r.idRol from ROLES r where r.descripcion=?;";
-    public String consultaDNI="select idPropietario from PROPIETARIO where DNI=?;";
+    public String consultaTipoMasc="SELECT t.idTipoMascota FROM TIPO_MASCOTA t WHERE t.Nombre_TipoMascota=?;";
+    public String consultaServicio="SELECT s.idServicios FROM SERVICIOS s WHERE s.NombreServicio=?;";
+    public String consultaTurno="SELECT t.idTurno FROM TURNO t WHERE t.hora=?;";
+    public String consultaRol="SELECT r.idRol FROM ROLES r WHERE r.descripcion=?;";
+    public String consultaDNI="SELECT idPropietario FROM PROPIETARIO WHERE DNI=?;";
     
     public AdministrarClaves(){}
     
@@ -27,11 +27,11 @@ public class AdministrarClaves extends ConectarBD{
         return id;
     }//fin metodo
     
-    public String queryTipoMasc="select Nombre_TipoMascota from TIPO_MASCOTA where idTipoMascota=?;";
-    public String queryServicio="select NombreServicio from SERVICIOS where idServicios=?;";
-    public String queryTurno="select hora from TURNO where idTurno=?;";
-    public String queryRol="select descripcion from ROLES where idRol=?;";
-    public String queryDNI="select DNI from PROPIETARIO where idPropietario=?;";
+    public String queryTipoMasc="SELECT Nombre_TipoMascota FROM TIPO_MASCOTA WHERE idTipoMascota=?;";
+    public String queryServicio="SELECT NombreServicio FROM SERVICIOS WHERE idServicios=?;";
+    public String queryTurno="SELECT hora FROM TURNO WHERE idTurno=?;";
+    public String queryRol="SELECT descripcion FROM ROLES WHERE idRol=?;";
+    public String queryDNI="SELECT DNI FROM PROPIETARIO WHERE idPropietario=?;";
     
     //metodo que recupera el nombre a traves de la id
     public String RecuperarNombre(String consulta, int id){
@@ -50,10 +50,11 @@ public class AdministrarClaves extends ConectarBD{
         return nombre;
     }//fin metodo
     
-    public String consultaVeterina="select v.idVeterinario from VETERINARIO v where v.NombresVeterinario=?;";
-    public String consultaIddMasco="select m.idMascota from MASCOTA m where m.Nombre_mascota=?;";
-    public String consultaNomVeter="select v.NombresVeterinario from VETERINARIO v where v.idVeterinario=?;";
-    public String consultaNomMasco="select m.Nombre_mascota from MASCOTA m where m.idMascota=?;";
+    public String consultaVeterina="SELECT v.idVeterinario FROM VETERINARIO v WHERE v.NombresVeterinario=?;";
+    public String consultaIddMasco="SELECT m.idMascota FROM MASCOTA m WHERE m.Nombre_mascota=?;";
+    public String consultaNomVeter="SELECT v.NombresVeterinario FROM VETERINARIO v WHERE v.idVeterinario=?;";
+    public String consultaNomMasco="SELECT m.Nombre_mascota FROM MASCOTA m WHERE m.idMascota=?;";
+    public String consultaDNI2="SELECT p.DNI FROM MASCOTA m INNER JOIN PROPIETARIO p ON m.idPropietario=p.idPropietario WHERE m.idMascota=?;";
     
     //metodo que recibe una consulta y parametro para retornar la id de un registro
     public String RecuperarCodigo(String consulta,String nombre){
