@@ -67,14 +67,14 @@ public class ControladorReservarCita implements ActionListener{
             Date fecha =vista.jdchFecha.getDate();
             String fech=df.format(fecha);
             crud=new CRUD_ReservarCita();
-            crud.MostrarCategoriasEnTablaTurno(vista.tblTurnosFecha, fech);
+            crud.MostrarCitaEnTablaTurno(vista.tblTurnosFecha, fech);
             ManejadorTablas.FormatoTablaFechas(vista.tblTurnosFecha);
         }//fin boton
         
         if(e.getSource()==vista.btnReservarCita){
             cat=ProcesosReservarCita.LeerDatos(vista);
             crud=new CRUD_ReservarCita();
-            crud.InsertarCategoria(cat);
+            crud.InsertarCita(cat);
             
             ImprimirTickerCita f10=new ImprimirTickerCita();
             ControladorImprimirTicketCita control0=new ControladorImprimirTicketCita(f10);
@@ -86,18 +86,20 @@ public class ControladorReservarCita implements ActionListener{
         if(e.getSource()==vista.btnConsultarCita){
            String idcat=Mensajes.M4("Ingrese el nombre a buscar: ");
            crud=new CRUD_ReservarCita();
-           cat=crud.RecuperarCategoria(idcat);
+           cat=crud.RecuperarCita(idcat);
            if(cat==null){
                Mensajes.M1("El codigo "+idcat+" no existe en la tabla categorias...");
            }else{
                vista.txtCodigo.setText(cat.getIdCita());
-               vista.txtDNI.setText(cat.getDni());
                vista.txaDescripcion.setText(cat.getDescripcion());
                
                AdministrarClaves ac = new AdministrarClaves();
                AdministrarClaves ac1 = new AdministrarClaves();
                AdministrarClaves ac2 = new AdministrarClaves();
                AdministrarClaves ac3 = new AdministrarClaves();
+               AdministrarClaves ac4 = new AdministrarClaves();
+               //recuperar DNI
+               vista.txtDNI.setText(ac.RecuperarCodigo(ac.consultaDNI2, cat.getIdMascota()));
                //ponemos añadir item pq al iniciar estos combox no tienen items
                vista.cbxMascota.addItem(ac.RecuperarCodigo(ac.consultaNomMasco, cat.getIdMascota()));
                vista.cbxServicio.addItem(ac1.RecuperarNombre(ac1.queryServicio, cat.getIdServicios()));
