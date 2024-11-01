@@ -9,14 +9,14 @@ import java.awt.event.ActionListener;
 
 public class ControladorListaCitas implements ActionListener{
     FrmListaDeCitas vista;
-    String consulta="select c.IdCita,p.Nombres,p.Apellidos,p.DNI,m.IdMascota,m.Nombre_mascota,s.NombreServicio,v.NombresVeterinario,c.FechaCita,t.hora,ec.TipoEstado" +
-                   " from CITA c"+
-                   " inner join propietario p on c.DNI=p.DNI"+
-                   " inner join mascota m on c.IdMascota=m.IdMascota"+
-                   " inner join servicios s on c.idServicios=s.idServicios"+
-                   " inner join veterinario v on c.idVeterinario=v.idVeterinario"+
-                   " inner join turno t on c.idTurno=t.idTurno"+
-                   " inner join estado_cita ec on c.idEstado=ec.idEstado";
+    String consulta="SELECT c.IdCita,p.Nombres,p.Apellidos,p.DNI,m.IdMascota,m.Nombre_mascota,s.NombreServicio,v.NombresVeterinario,c.FechaCita,t.hora,ec.TipoEstado" +
+                   " FROM CITA c"+
+                   " INNER JOIN MASCOTA m ON c.IdMascota=m.IdMascota"+
+                   " INNER JOIN PROPIETARIO p ON m.idPropietario=p.idPropietario"+
+                   " INNER JOIN SERVICIOS s ON c.idServicios=s.idServicios"+
+                   " INNER JOIN VETERINARIO v ON c.idVeterinario=v.idVeterinario"+
+                   " INNER JOIN TURNO t ON c.idTurno=t.idTurno"+
+                   " INNER JOIN ESTADO_CITA ec ON c.idEstado=ec.idEstado";
     CRUD_ReservarCita crud;
 
     public ControladorListaCitas(FrmListaDeCitas f4) {
@@ -32,7 +32,7 @@ public class ControladorListaCitas implements ActionListener{
     
     void ActualizarTabla(String query){
         crud = new CRUD_ReservarCita();
-        crud.MostrarCategoriasEnTabla(vista.tblListaCitas, query);
+        crud.MostrarCitaEnTabla(vista.tblListaCitas, query);
         ManejadorTablas.FormatoTablaListarCitas(vista.tblListaCitas);
     }
     
