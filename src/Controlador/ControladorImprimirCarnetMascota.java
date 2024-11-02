@@ -5,13 +5,14 @@ import Formatos.*;
 import Modelo.*;
 import Vista.*;
 import Procesos.*;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.*;
-/*import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;*/
+import java.awt.image.BufferedImage;
 import java.awt.print.*;
-/*import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;*/
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -20,9 +21,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class ControladorImprimirCarnetMascota implements ActionListener{
     ImprimirCarnetMascota vista;
     CRUD_Mascotas crud;
+    CRUD_Carnet crud2;
     CRUD_Propietarios crud1;
     Mascotas cat;
     Propietarios cat1;
+    CarnetClass car;
     
     public ControladorImprimirCarnetMascota(ImprimirCarnetMascota f5) {
         vista=f5;
@@ -90,6 +93,40 @@ public class ControladorImprimirCarnetMascota implements ActionListener{
        }//fin boton
         
         if(e.getSource()==vista.btnImprimir){
+            // Recuperar el ID de la mascota
+            String idMascota = vista.txtCodigo.getText();
+
+            // Recuperar la imagen del JLabel
+            ImageIcon iconoImagen = (ImageIcon) vista.carnet1.lblImagenMascota.getIcon();
+            byte[] imagenBytes = null;
+
+            // Convertir la imagen a un arreglo de bytes
+            if (iconoImagen != null) {
+                Image image = iconoImagen.getImage();
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                try {
+                    // Convertir a byte[]
+                    BufferedImage bufferedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+                    Graphics g = bufferedImage.createGraphics();
+                    g.drawImage(image, 0, 0, null);
+                    g.dispose();
+                    ImageIO.write(bufferedImage, "png", baos);
+                    imagenBytes = baos.toByteArray();
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, "Error al convertir la imagen: " + ex.getMessage());
+                }
+            }
+
+            // Crear objeto Carnet
+            car = new CarnetClass();
+            car.setIdMascota(idMascota);
+            car.setImagen(imagenBytes);
+
+            // Insertar el carnet en la base de datos
+            crud2 = new CRUD_Carnet();
+            crud2.InsertarCarnet(car);
+            
+            //Metodo para imprimir
             PrinterJob job=PrinterJob.getPrinterJob();
             job.setPrintable(vista.carnet1);
             
