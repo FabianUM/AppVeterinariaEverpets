@@ -51,11 +51,11 @@ public class ImprimirCarnetMascota extends javax.swing.JInternalFrame implements
         btnSeleccionarImagen.setText("SELECCIONA IMAGEN");
         btnSeleccionarImagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnImprimir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnImprimir.setText("IMPRIMIR");
+        btnImprimir.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        btnImprimir.setText("GENERAR E IMPRIMIR");
         btnImprimir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        txtCodigo.setBorder(null);
+        txtCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CODIGO MASCOTA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
