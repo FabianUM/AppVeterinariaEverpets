@@ -13,6 +13,11 @@ public class ManejadorTablas {
         column.setPreferredWidth(ancho);       
     }
     
+    // Método que especifica un alto de las filas de la tabla
+    public static void AltoFilas(JTable t, int alto) {
+        t.setRowHeight(alto);
+    }
+    
     //metodo que justifica los datos de una columna
    public static void JustificarCelda(JTable t,int numcolumna){
        DefaultTableCellRenderer modelocentrar = new DefaultTableCellRenderer();
@@ -176,6 +181,24 @@ public class ManejadorTablas {
        JustificarCelda(tabla,9);
        AnchoColumnas(tabla,10,150);
        JustificarCelda(tabla,10);
+   }
+   
+   //metodo que la da formato a la JTable 
+   public static void FormatoTablaListarCarnet(JTable tabla){
+       AnchoColumnas(tabla,0,80);
+       JustificarCelda(tabla,0);
+       AnchoColumnas(tabla,1,80);
+       JustificarCelda(tabla,1);
+       AnchoColumnas(tabla,2,350);
+       JustificarCelda(tabla,2);
+       AnchoColumnas(tabla,3,120);
+       JustificarCelda(tabla,3);
+       
+       // Establecer el renderer para la columna de imágenes
+        tabla.getColumnModel().getColumn(2).setCellRenderer(new ImageRenderer());
+        
+        // Establecer el alto de las filas
+        AltoFilas(tabla, 100);
    }
    
 }//fin clase
