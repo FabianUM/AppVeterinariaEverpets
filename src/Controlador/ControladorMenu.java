@@ -43,6 +43,8 @@ public class ControladorMenu implements ActionListener{
         vista.mitemImprimirCarnet.addActionListener(this);
         vista.mitemListarCarnet.addActionListener(this);
         vista.mitemListarCitas.addActionListener(this);
+        vista.mitemListarTicket.addActionListener(this);
+        vista.mitemListarRecibo.addActionListener(this);
         vista.mitemTurnosCita.addActionListener(this);
         vista.mitemMantenimientoUsuarios.addActionListener(this);
         vista.mitemVeterinaria.addActionListener(this);
@@ -127,6 +129,12 @@ public class ControladorMenu implements ActionListener{
             FrmListaCarnet f12=new FrmListaCarnet();
             ControladorListaCarnet control12=new ControladorListaCarnet(f12);          
             vista.jdpnContenedor.add(f12);
+        }
+        
+        if(e.getSource()==vista.mitemListarTicket){
+            FrmListaTicket f13=new FrmListaTicket();
+            ControladorListaTicket control13=new ControladorListaTicket(f13);          
+            vista.jdpnContenedor.add(f13);
         }
         
         if (e.getSource() == vista.btnConfiguracion) {
