@@ -15,5 +15,6 @@ public class Main {
        fl=new FrmLogin();
        controlL=new ControladorLogin(fl);
        
-    }
+    }//Fin metodo principal
+    
 }//fin clase
