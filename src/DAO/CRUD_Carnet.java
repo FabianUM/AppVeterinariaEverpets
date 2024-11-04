@@ -104,4 +104,34 @@ public class CRUD_Carnet extends ConectarBD{
         }
     }//Fin metodo
     
+    //metodo que recupera el carnet
+    public ConsultarCarnet RecuperarDatosCarnet(String idMas){
+        ConsultarCarnet car=null;
+        try{
+            rs=st.executeQuery("SELECT ca.imagen,ca.idMascota,p.Nombres,p.Apellidos,p.DNI,m.Nombre_mascota,t.Nombre_TipoMascota,m.Sexo_mascota,p.Direccion,p.Telefono"+
+                              " FROM CARNET_MASCOTA ca" +
+                              " INNER JOIN MASCOTA m ON ca.idMascota = m.idMascota" +
+                              " INNER JOIN TIPO_MASCOTA t ON m.idTipoMascota = t.idTipoMascota" +
+                              " INNER JOIN PROPIETARIO p ON m.idPropietario = p.idPropietario" +
+                              " WHERE ca.idMascota='"+idMas+"';");
+            if(rs.next()){
+                car=new ConsultarCarnet();
+                car.setImagen(rs.getBytes(1)); // Guardamos la imagen como byte[]
+                car.setIdMascota(rs.getString(2));
+                car.setNombreDueño(rs.getString(3));
+                car.setApellidoDueño(rs.getString(4));
+                car.setDNI(rs.getString(5));
+                car.setNombreMascota(rs.getString(6));
+                car.setTipoMascota(rs.getString(7));
+                car.setSexoMascota(rs.getString(8));
+                car.setDireccion(rs.getString(9));
+                car.setTelefono(rs.getString(10));
+            }
+            con.close();
+        }catch(Exception e){
+            Mensajes.M1("ERROR no se puede recuperar el carnet ..."+e);
+        }
+        return car;
+    }//fin metodo
+    
 }//Fin clase
