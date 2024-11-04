@@ -41,6 +41,7 @@ public class ControladorMenu implements ActionListener{
         vista.mitemMantenimientoTiposMascota.addActionListener(this);
         vista.mitemMantenimientoVeterinarios.addActionListener(this);
         vista.mitemImprimirCarnet.addActionListener(this);
+        vista.mitemListarCarnet.addActionListener(this);
         vista.mitemListarCitas.addActionListener(this);
         vista.mitemTurnosCita.addActionListener(this);
         vista.mitemMantenimientoUsuarios.addActionListener(this);
@@ -120,6 +121,12 @@ public class ControladorMenu implements ActionListener{
             frmVeterinariaEverpets f11=new frmVeterinariaEverpets();
             ControladorVeterinaria control11=new ControladorVeterinaria(f11);          
             vista.jdpnContenedor.add(f11);
+        }
+        
+        if(e.getSource()==vista.mitemListarCarnet){
+            FrmListaCarnet f12=new FrmListaCarnet();
+            ControladorListaCarnet control12=new ControladorListaCarnet(f12);          
+            vista.jdpnContenedor.add(f12);
         }
         
         if (e.getSource() == vista.btnConfiguracion) {
