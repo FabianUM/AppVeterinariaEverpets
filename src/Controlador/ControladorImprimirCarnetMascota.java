@@ -31,8 +31,10 @@ public class ControladorImprimirCarnetMascota implements ActionListener{
         vista=f5;
         vista.btnMostrarDatos.addActionListener(this);
         vista.btnSeleccionarImagen.addActionListener(this);
+        vista.btnGenerarImprimir.addActionListener(this);
         vista.btnImprimir.addActionListener(this);
         Procesos.ProcesosImprimirCarnetMascota.Presentacion(f5);
+        ProcesosImprimirCarnetMascota.BotonesAlIniciar(vista);
     }//fin constructor
     
     void ActualizarForma(){
@@ -94,7 +96,7 @@ public class ControladorImprimirCarnetMascota implements ActionListener{
        
        }//fin boton
         
-        if(e.getSource()==vista.btnImprimir){
+        if(e.getSource()==vista.btnGenerarImprimir){
             // Recuperar el ID de la mascota
             String idMascota = vista.txtCodigo.getText();
 
@@ -128,6 +130,25 @@ public class ControladorImprimirCarnetMascota implements ActionListener{
             crud2 = new CRUD_Carnet();
             crud2.InsertarCarnet(car);
             
+            //Metodo para imprimir
+            PrinterJob job=PrinterJob.getPrinterJob();
+            job.setPrintable(vista.carnet1);
+            
+            if(job.printDialog()){
+                try{
+                    job.print();
+                    ActualizarForma();
+                }catch(PrinterException ex){
+                    
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "La impresion se cancelo");
+            }
+            ProcesosImprimirCarnetMascota.LimpiarEntradas(vista);
+            ProcesosImprimirCarnetMascota.LimpiarEntradasCarnet(vista.carnet1);
+        }//fin boton
+        
+        if(e.getSource()==vista.btnImprimir){
             //Metodo para imprimir
             PrinterJob job=PrinterJob.getPrinterJob();
             job.setPrintable(vista.carnet1);
