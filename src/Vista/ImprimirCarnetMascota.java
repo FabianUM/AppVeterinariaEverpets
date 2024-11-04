@@ -39,6 +39,7 @@ public class ImprimirCarnetMascota extends javax.swing.JInternalFrame implements
         btnImprimir = new javax.swing.JButton();
         txtCodigo = new javax.swing.JTextField();
         carnet1 = new Vista.Carnet();
+        btnGenerarImprimir = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setClosable(true);
@@ -52,10 +53,14 @@ public class ImprimirCarnetMascota extends javax.swing.JInternalFrame implements
         btnSeleccionarImagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnImprimir.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        btnImprimir.setText("GENERAR E IMPRIMIR");
+        btnImprimir.setText("IMPRIMIR");
         btnImprimir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CODIGO MASCOTA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+
+        btnGenerarImprimir.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        btnGenerarImprimir.setText("GENERAR E IMPRIMIR");
+        btnGenerarImprimir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,13 +69,14 @@ public class ImprimirCarnetMascota extends javax.swing.JInternalFrame implements
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(carnet1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
+                        .addGap(7, 7, 7)
                         .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnMostrarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSeleccionarImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGenerarImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
@@ -81,11 +87,13 @@ public class ImprimirCarnetMascota extends javax.swing.JInternalFrame implements
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110)
+                .addGap(50, 50, 50)
                 .addComponent(btnMostrarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
+                .addGap(9, 9, 9)
                 .addComponent(btnSeleccionarImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
+                .addGap(9, 9, 9)
+                .addComponent(btnGenerarImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
                 .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -94,6 +102,7 @@ public class ImprimirCarnetMascota extends javax.swing.JInternalFrame implements
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnGenerarImprimir;
     public javax.swing.JButton btnImprimir;
     public javax.swing.JButton btnMostrarDatos;
     public javax.swing.JButton btnSeleccionarImagen;
