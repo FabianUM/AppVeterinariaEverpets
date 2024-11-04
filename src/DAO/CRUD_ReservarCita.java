@@ -73,16 +73,16 @@ public class CRUD_ReservarCita extends ConectarBD{
             ps=con.prepareStatement("INSERT INTO CITA (idMascota,FechaCita,idTurno,idServicios,idVeterinario,Precio,Descripcion,idEstado)" +
                                     " VALUES(?,?,?,?,?,?,?,1);");
             //actualizando los parametros
-            ps.setString(2, cat.getIdMascota());
+            ps.setString(1, cat.getIdMascota());
             
             SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
-            ps.setString(3, df.format(cat.getFecha()));
+            ps.setString(2, df.format(cat.getFecha()));
             
-            ps.setInt(4, cat.getIdTurno());
-            ps.setInt(5, cat.getIdServicios());
-            ps.setString(6, cat.getIdVeterinario());
-            ps.setDouble(7, cat.getPrecio());
-            ps.setString(8, cat.getDescripcion());
+            ps.setInt(3, cat.getIdTurno());
+            ps.setInt(4, cat.getIdServicios());
+            ps.setString(5, cat.getIdVeterinario());
+            ps.setDouble(6, cat.getPrecio());
+            ps.setString(7, cat.getDescripcion());
             //actualizamos y ejecutamos la consulta
             ps.executeUpdate();
             Mensajes.M1("Datos registrados correctamente");
@@ -164,7 +164,7 @@ public class CRUD_ReservarCita extends ConectarBD{
         try{
             rs=st.executeQuery("SELECT MAX(idTicket) AS idTicket FROM TICKET;");
             if(rs.next()){
-                String c=rs.getString("IdCita");
+                String c=rs.getString("idTicket");
                 codigo.setText(c);
             }
         }catch(Exception ex){
@@ -177,7 +177,7 @@ public class CRUD_ReservarCita extends ConectarBD{
         try{
             rs=st.executeQuery("SELECT c.FechaCita, tu.hora"+
                               " FROM TICKET ti"+
-                              " INNER JOIN CITA c ON ti.IdCita =c.IdCita"+
+                              " INNER JOIN CITA c ON ti.idCita =c.idCita"+
                               " INNER JOIN TURNO tu ON c.idTurno=tu.idTurno"+
                               " WHERE ti.idTicket='"+Codigo+"';");
             while(rs.next()){
@@ -188,7 +188,7 @@ public class CRUD_ReservarCita extends ConectarBD{
             }//fin while
             con.close();
         }catch(Exception e){
-            Mensajes.M1("ERROR no se pueden ver las categorias en el JTable..."+e);
+            Mensajes.M1("ERROR no se muestran datos del ticket..."+e);
         }
     }//fin metodo
     
