@@ -201,4 +201,18 @@ public class ManejadorTablas {
         AltoFilas(tabla, 100);
    }
    
+   //metodo que la da formato a la JTable 
+   public static void FormatoTablaListarTicket(JTable tabla){
+       AnchoColumnas(tabla,0,80);
+       JustificarCelda(tabla,0);
+       AnchoColumnas(tabla,1,80);
+       JustificarCelda(tabla,1);
+       AnchoColumnas(tabla,2,150);
+       JustificarCelda(tabla,2);
+       AnchoColumnas(tabla,3,150);
+       JustificarCelda(tabla,3);
+       AnchoColumnas(tabla,4,150);
+       JustificarCelda(tabla,4);
+   }
+   
 }//fin clase
