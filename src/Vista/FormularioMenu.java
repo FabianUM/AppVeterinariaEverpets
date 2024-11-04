@@ -39,6 +39,9 @@ public class FormularioMenu extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         mitemImprimirCarnet = new javax.swing.JMenuItem();
         mitemListarCarnet = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        mitemListarTicket = new javax.swing.JMenuItem();
+        mitemListarRecibo = new javax.swing.JMenuItem();
         jMenuConfiguracion = new javax.swing.JMenu();
         mitemTurnosCita = new javax.swing.JMenuItem();
         mitemMantenimientoVeterinarios = new javax.swing.JMenuItem();
@@ -103,6 +106,16 @@ public class FormularioMenu extends javax.swing.JFrame {
         jMenu3.add(mitemListarCarnet);
 
         jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Recibos");
+
+        mitemListarTicket.setText("Listar Ticket");
+        jMenu4.add(mitemListarTicket);
+
+        mitemListarRecibo.setText("Listar Recibo");
+        jMenu4.add(mitemListarRecibo);
+
+        jMenuBar1.add(jMenu4);
 
         jMenuConfiguracion.setText("Configuracion");
 
@@ -196,6 +209,7 @@ public class FormularioMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     public javax.swing.JMenu jMenuConfiguracion;
     private javax.swing.JPopupMenu jPopupMenu1;
@@ -203,6 +217,8 @@ public class FormularioMenu extends javax.swing.JFrame {
     public javax.swing.JMenuItem mitemImprimirCarnet;
     public javax.swing.JMenuItem mitemListarCarnet;
     public javax.swing.JMenuItem mitemListarCitas;
+    public javax.swing.JMenuItem mitemListarRecibo;
+    public javax.swing.JMenuItem mitemListarTicket;
     public javax.swing.JMenuItem mitemMantenimientoCitas;
     public javax.swing.JMenuItem mitemMantenimientoDueño;
     public javax.swing.JMenuItem mitemMantenimientoMascota;
