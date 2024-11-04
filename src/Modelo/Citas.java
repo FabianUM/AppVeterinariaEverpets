@@ -5,7 +5,6 @@ import java.util.Date;
 
 public class Citas {
     private String idCita;
-    //private String dni;
     private String idMascota;
     private Date fecha;
     private int idTurno;
@@ -18,8 +17,6 @@ public class Citas {
 
     public String getIdCita()                                   {return idCita;}
     public void setIdCita(String idCita)                        {this.idCita = idCita;}
-    //public String getDni()                                      {return dni;}
-    //public void setDni(String dni)                              {this.dni = dni;}
     public String getIdMascota()                                {return idMascota;}
     public void setIdMascota(String idMascota)                  {this.idMascota = idMascota;}
     public Date getFecha()                                      {return fecha;}
