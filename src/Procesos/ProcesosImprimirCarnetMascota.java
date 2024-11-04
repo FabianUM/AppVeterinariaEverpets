@@ -30,6 +30,9 @@ public class ProcesosImprimirCarnetMascota {
         
         f5.btnGenerarImprimir.setEnabled(false);
         f5.btnGenerarImprimir.setVisible(false);
+        
+        f5.btnImprimir.setEnabled(true);
+        f5.btnImprimir.setVisible(true);
     }
     
     public static void LimpiarEntradasCarnet(Carnet f5){
