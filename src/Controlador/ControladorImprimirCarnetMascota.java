@@ -58,7 +58,8 @@ public class ControladorImprimirCarnetMascota implements ActionListener{
                 Ruta=jFileChooser.getSelectedFile().getPath();
                 
                 Image mImage = new ImageIcon(Ruta).getImage();
-                ImageIcon mIcono = new ImageIcon(mImage.getScaledInstance(vista.carnet1.lblImagenMascota.getWidth(), vista.carnet1.lblImagenMascota.getHeight(), Image.SCALE_SMOOTH));
+                ImageIcon mIcono = new ImageIcon(mImage.getScaledInstance(vista.carnet1.lblImagenMascota.getWidth(), 
+                        vista.carnet1.lblImagenMascota.getHeight(), Image.SCALE_SMOOTH));
                 vista.carnet1.lblImagenMascota.setIcon(mIcono);
             }
        }//fin boton
@@ -66,7 +67,8 @@ public class ControladorImprimirCarnetMascota implements ActionListener{
         if(e.getSource()==vista.btnMostrarDatos){
            String id= vista.txtCodigo.getText();
            crud=new CRUD_Mascotas();
-           cat=crud.DatosCarnetM(id, vista.carnet1.lblCodigo,vista.carnet1.lblDNI,vista.carnet1.lblMascota,vista.carnet1.lblTipo,vista.carnet1.lblSexo);
+           cat=crud.DatosCarnetM(id, vista.carnet1.lblCodigo,vista.carnet1.lblDNI,vista.carnet1.lblMascota,
+                   vista.carnet1.lblTipo,vista.carnet1.lblSexo);
            if(cat==null){
                Mensajes.M1("No existe ninguna mascota con el codigo "+cat);
            }else{
