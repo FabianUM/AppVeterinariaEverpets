@@ -40,11 +40,6 @@ public class CRUD_Recibo extends ConectarBD{
     public ReciboClass DatosRecibo(int Codigo){
         ReciboClass recibo = new ReciboClass();
         try{
-            /*rs=st.executeQuery("SELECT c.FechaCita, tu.hora"+
-                              " FROM TICKET ti"+
-                              " INNER JOIN CITA c ON ti.idCita =c.idCita"+
-                              " INNER JOIN TURNO tu ON c.idTurno=tu.idTurno"+
-                              " WHERE ti.idTicket="+Codigo+";");*/
             rs=st.executeQuery("SELECT p.Nombres, p.Apellidos, p.DNI, m.idMascota, m.Nombre_mascota, s.NombreServicio, v.NombresVeterinario, v.ApellidosVeterinario, c.FechaCita, t.hora, c.Precio"+
                               " FROM RECIBO r" +
                               " INNER JOIN CITA c ON r.IdCita=c.IdCita"+
