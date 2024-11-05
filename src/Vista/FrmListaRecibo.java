@@ -27,29 +27,28 @@ public class FrmListaRecibo extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtDNI = new javax.swing.JTextField();
-        btnConsultar = new javax.swing.JButton();
+        txtBuscar = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
         btnLimpiarFiltro = new javax.swing.JButton();
-        lblMascota = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tblRecibos = new javax.swing.JTable();
+        tblListaRecibo = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setClosable(true);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "BUSCAR POR CODIGO MASCOTA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "BUSCAR POR ID MASCOTA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtDNI.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CODIGO MASCOTA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 10))); // NOI18N
-        jPanel1.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 31, 150, 50));
+        txtBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ID MASCOTA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 10))); // NOI18N
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 200, 50));
 
-        btnConsultar.setBackground(new java.awt.Color(0, 153, 153));
-        btnConsultar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnConsultar.setForeground(new java.awt.Color(255, 255, 255));
-        btnConsultar.setText("CONSULTAR");
-        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 110, 40));
+        btnBuscar.setBackground(new java.awt.Color(0, 153, 153));
+        btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setText("BUSCAR");
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 110, 40));
 
         btnLimpiarFiltro.setBackground(new java.awt.Color(0, 153, 153));
         btnLimpiarFiltro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -60,16 +59,13 @@ public class FrmListaRecibo extends javax.swing.JInternalFrame {
                 btnLimpiarFiltroActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiarFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 130, 40));
-
-        lblMascota.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(lblMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 300, 30));
+        jPanel1.add(btnLimpiarFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 130, 40));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 102));
         jLabel3.setText("TABLA RECIBOS");
 
-        tblRecibos.setModel(new javax.swing.table.DefaultTableModel(
+        tblListaRecibo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -80,20 +76,21 @@ public class FrmListaRecibo extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(tblRecibos);
+        jScrollPane3.setViewportView(tblListaRecibo);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3)
-                .addContainerGap())
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(318, 318, 318)
-                .addComponent(jLabel3)
-                .addContainerGap(396, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(318, 318, 318)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 829, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,19 +107,22 @@ public class FrmListaRecibo extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
+                .addGap(10, 10, 10)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 471, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -134,14 +134,13 @@ public class FrmListaRecibo extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnConsultar;
+    public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnLimpiarFiltro;
     public javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane3;
-    public javax.swing.JLabel lblMascota;
-    public javax.swing.JTable tblRecibos;
-    public javax.swing.JTextField txtDNI;
+    public javax.swing.JTable tblListaRecibo;
+    public javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }
