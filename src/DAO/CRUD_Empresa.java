@@ -34,7 +34,7 @@ public class CRUD_Empresa extends ConectarBD{
         }
     }//fin metodo
     
-    //metodo que recupera un registro de la tabla por medio del id
+    //metodo que recupera un registro 
     public Empresa RecuperarEmpresa(){
         Empresa em=null;
         try{
