@@ -120,8 +120,8 @@ public class ControladorMenu implements ActionListener{
         }
         
         if(e.getSource()==vista.mitemVeterinaria){
-            frmVeterinariaEverpets f11=new frmVeterinariaEverpets();
-            ControladorVeterinaria control11=new ControladorVeterinaria(f11);          
+            FrmEmpresa f11=new FrmEmpresa();
+            ControladorEmpresa control11=new ControladorEmpresa(f11);          
             vista.jdpnContenedor.add(f11);
         }
         
