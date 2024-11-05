@@ -137,6 +137,12 @@ public class ControladorMenu implements ActionListener{
             vista.jdpnContenedor.add(f13);
         }
         
+        if(e.getSource()==vista.mitemListarRecibo){
+            FrmListaRecibo f14=new FrmListaRecibo();
+            ControladorListaRecibo control14=new ControladorListaRecibo(f14);          
+            vista.jdpnContenedor.add(f14);
+        }
+        
         if (e.getSource() == vista.btnConfiguracion) {
             // Mostrar el JPopupMenu
             jPopupMenu1.show(vista.btnConfiguracion, 0, vista.btnConfiguracion.getHeight());
