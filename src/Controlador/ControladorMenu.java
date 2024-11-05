@@ -1,5 +1,6 @@
 package Controlador;
 //librerias
+import Formatos.Mensajes;
 import Modelo.Usuarios;
 import Principal.*;
 import Vista.*;
@@ -25,9 +26,14 @@ public class ControladorMenu implements ActionListener{
         });
         JMenuItem menuItem2 = new JMenuItem("Cerrar Sesión");
         menuItem2.addActionListener(e -> {
-            vista.dispose(); // Ejemplo: cerrar la ventana actual
-            FrmLogin f12 = new FrmLogin(); // Ejemplo: abrir el formulario de login
-            ControladorLogin control12 = new ControladorLogin(f12);
+            int m=Mensajes.M3("Cerrar Cesion", "¿Desea cerrar la sesión?");
+            if(m==0){
+                vista.dispose(); // Ejemplo: cerrar la ventana actual
+                FrmLogin f12 = new FrmLogin(); // Ejemplo: abrir el formulario de login
+                ControladorLogin control12 = new ControladorLogin(f12);
+            }else{
+                Mensajes.M1("Cierre de sesión cancelado");
+            }//Fin if
         });
         
         jPopupMenu1.add(menuItem1);
