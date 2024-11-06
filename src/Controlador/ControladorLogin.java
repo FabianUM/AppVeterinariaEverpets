@@ -64,12 +64,16 @@ public class ControladorLogin implements ActionListener{
                         fm.mitemMantenimientoServicioMascotas.setVisible(false);
                         fm.jAdministracion.setEnabled(false);
                         fm.jAdministracion.setVisible(false);
+                        fm.jReportes.setEnabled(false);
+                        fm.jReportes.setVisible(false);
                         break;
                     case 3:
                         fm.jMenuConfiguracion.setEnabled(false);
                         fm.jMenuConfiguracion.setVisible(false);
                         fm.jAdministracion.setEnabled(false);
                         fm.jAdministracion.setVisible(false);
+                        fm.jReportes.setEnabled(false);
+                        fm.jReportes.setVisible(false);
                         break;
                 }
                 controlfm = new ControladorMenu(fm);
