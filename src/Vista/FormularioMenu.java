@@ -50,6 +50,8 @@ public class FormularioMenu extends javax.swing.JFrame {
         jAdministracion = new javax.swing.JMenu();
         mitemMantenimientoUsuarios = new javax.swing.JMenuItem();
         mitemVeterinaria = new javax.swing.JMenuItem();
+        jReportes = new javax.swing.JMenu();
+        mitemReportesGraficos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,6 +150,13 @@ public class FormularioMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jAdministracion);
 
+        jReportes.setText("Reportes");
+
+        mitemReportesGraficos.setText("Reportes Gráficos");
+        jReportes.add(mitemReportesGraficos);
+
+        jMenuBar1.add(jReportes);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -213,6 +222,7 @@ public class FormularioMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     public javax.swing.JMenu jMenuConfiguracion;
     private javax.swing.JPopupMenu jPopupMenu1;
+    public javax.swing.JMenu jReportes;
     public javax.swing.JDesktopPane jdpnContenedor;
     public javax.swing.JMenuItem mitemImprimirCarnet;
     public javax.swing.JMenuItem mitemListarCarnet;
@@ -226,6 +236,7 @@ public class FormularioMenu extends javax.swing.JFrame {
     public javax.swing.JMenuItem mitemMantenimientoTiposMascota;
     public javax.swing.JMenuItem mitemMantenimientoUsuarios;
     public javax.swing.JMenuItem mitemMantenimientoVeterinarios;
+    public javax.swing.JMenuItem mitemReportesGraficos;
     public javax.swing.JMenuItem mitemTurnosCita;
     public javax.swing.JMenuItem mitemVeterinaria;
     // End of variables declaration//GEN-END:variables
