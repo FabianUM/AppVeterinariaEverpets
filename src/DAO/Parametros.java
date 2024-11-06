@@ -8,8 +8,8 @@ package DAO;
 
 public interface Parametros {
     String DRIVER="com.mysql.cj.jdbc.Driver";
-    //String RUTA="jdbc:mysql://127.0.0.1/appveterinariaeverpets";
-    String RUTA="jdbc:mysql://127.0.0.1/prueba";
+    String RUTA="jdbc:mysql://127.0.0.1/VeterinariaEverpets";
+    //String RUTA="jdbc:mysql://127.0.0.1/prueba";
     String USUARIO="root";
     String CLAVE="root";
 }
