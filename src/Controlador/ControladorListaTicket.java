@@ -70,14 +70,13 @@ public class ControladorListaTicket implements ActionListener{
         ImprimirTickerCita f10=new ImprimirTickerCita();
         ControladorImprimirTicketCita control10=new ControladorImprimirTicketCita(f10);
         
-        f10.ticker1.lblCodigo.setText(String.valueOf(idTicket));
-        
         crud=new CRUD_Ticket();
         ti=crud.DatosTicket(idTicket);
         
         if(crud==null){
             Mensajes.M1("No existe ningun ticket para la mascota "+ti);
         }else{
+            f10.ticker1.lblCodigo.setText(ti.getIdCita());
             f10.ticker1.lblFecha.setText(ti.getFecha().toString()); 
             f10.ticker1.lblHorarioEstablecido.setText(ti.getHora());
         }
