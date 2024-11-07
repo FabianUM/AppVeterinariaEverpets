@@ -40,12 +40,13 @@ public class CRUD_Ticket extends ConectarBD{
     public TicketClass DatosTicket(int Codigo){
         TicketClass ticket = new TicketClass();
         try{
-            rs=st.executeQuery("SELECT c.FechaCita, tu.hora"+
+            rs=st.executeQuery("SELECT ti.IdCita, c.FechaCita, tu.hora"+
                               " FROM TICKET ti"+
                               " INNER JOIN CITA c ON ti.idCita =c.idCita"+
                               " INNER JOIN TURNO tu ON c.idTurno=tu.idTurno"+
                               " WHERE ti.idTicket="+Codigo+";");
             while(rs.next()){
+                ticket.setIdCita(rs.getString("ti.IdCita")); 
                 ticket.setFecha(rs.getDate("c.FechaCita"));  
                 ticket.setHora(rs.getString("tu.hora")); 
             }//fin while
