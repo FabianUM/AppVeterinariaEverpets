@@ -27,7 +27,7 @@ public class ControladorImprimirTicketCita implements ActionListener{
         crud.CargarCodigoTicket(vista.ticker1.lblCodigo);
         
         String codigo=vista.ticker1.lblCodigo.getText();
-        crud.DatosTicket(codigo, vista.ticker1.lblFecha, vista.ticker1.lblHorarioEstablecido);
+        crud.DatosTicket(codigo, vista.ticker1.lblFecha, vista.ticker1.lblHorarioEstablecido,vista.ticker1.lblCodigo);
     }
     
     @Override
