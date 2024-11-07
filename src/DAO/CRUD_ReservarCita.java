@@ -173,18 +173,20 @@ public class CRUD_ReservarCita extends ConectarBD{
     }//fin metodo
     
     //metodo que muestra datos en ticket
-    public void DatosTicket(String Codigo, JLabel j1, JLabel j2){
+    public void DatosTicket(String Codigo, JLabel j1, JLabel j2, JLabel j3){
         try{
-            rs=st.executeQuery("SELECT c.FechaCita, tu.hora"+
+            rs=st.executeQuery("SELECT ti.IdCita, c.FechaCita, tu.hora"+
                               " FROM TICKET ti"+
                               " INNER JOIN CITA c ON ti.idCita =c.idCita"+
                               " INNER JOIN TURNO tu ON c.idTurno=tu.idTurno"+
                               " WHERE ti.idTicket='"+Codigo+"';");
             while(rs.next()){
+                String id=rs.getString("ti.IdCita");
                 Date f=rs.getDate("c.FechaCita");
                 String h=rs.getString("tu.hora");
                 j1.setText(f.toString());
                 j2.setText(h);
+                j3.setText(id);
             }//fin while
             con.close();
         }catch(Exception e){
