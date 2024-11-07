@@ -69,14 +69,13 @@ public class ControladorListaRecibo implements ActionListener{
         ImprimirReciboDeCita f11=new ImprimirReciboDeCita();
         ControladorImprimirReciboCita control11=new ControladorImprimirReciboCita(f11);
         
-        f11.reciboCita1.lblCodigo.setText(String.valueOf(idRecibo));
-        
         crud=new CRUD_Recibo();
         re=crud.DatosRecibo(idRecibo);
         
         if(crud==null){
             Mensajes.M1("No existe ningun ticket para la mascota "+re);
         }else{
+            f11.reciboCita1.lblCodigo.setText(re.getIdCita());
             f11.reciboCita1.lblNombres.setText(re.getNombre()+" "+re.getApellido());
             f11.reciboCita1.lblDNI.setText(re.getDni());
             f11.reciboCita1.lblCodMascota.setText(re.getIdMascota());
