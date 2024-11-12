@@ -1,7 +1,5 @@
 package Modelo;
 //librerias
-import DAO.*;
-import java.util.*;
 
 public class Turno {
     private int idTurno;
