@@ -58,22 +58,10 @@ public class ControladorLogin implements ActionListener{
                 fm = new FormularioMenu();
                 switch (u.getIdRol()) {
                     case 2: 
-                        fm.mitemTurnosCita.setEnabled(false);
-                        fm.mitemTurnosCita.setVisible(false);
-                        fm.mitemMantenimientoServicioMascotas.setEnabled(false);
-                        fm.mitemMantenimientoServicioMascotas.setVisible(false);
-                        fm.jAdministracion.setEnabled(false);
-                        fm.jAdministracion.setVisible(false);
-                        fm.jReportes.setEnabled(false);
-                        fm.jReportes.setVisible(false);
+                        Procesos.ProcesosLogin.VistasSupervisor(fm);
                         break;
                     case 3:
-                        fm.jMenuConfiguracion.setEnabled(false);
-                        fm.jMenuConfiguracion.setVisible(false);
-                        fm.jAdministracion.setEnabled(false);
-                        fm.jAdministracion.setVisible(false);
-                        fm.jReportes.setEnabled(false);
-                        fm.jReportes.setVisible(false);
+                        Procesos.ProcesosLogin.VistasEmpleado(fm);
                         break;
                 }
                 controlfm = new ControladorMenu(fm);
