@@ -1,5 +1,5 @@
-
 package Formatos;
+//librerias
 import java.awt.Dimension;
 import javax.swing.JInternalFrame;
 import javax.swing.JDesktopPane;
