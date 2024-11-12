@@ -1,10 +1,5 @@
 package DAO;
 //librerias
-import Formatos.*;
-import Modelo.*;
-import javax.swing.JTable;
-import javax.swing.JLabel;
-import javax.swing.table.DefaultTableModel;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
