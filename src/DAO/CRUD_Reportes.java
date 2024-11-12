@@ -57,26 +57,23 @@ public class CRUD_Reportes extends ConectarBD{
         return dataset;
     }//Fin metodo
 
-    // Método para generar un gráfico de líneas: Distribución de edades de las mascotas
-    public DefaultCategoryDataset obtenerDistribucionEdadMascotas() {
+    
+    // Método para generar un gráfico de líneas: Número de visitas por mes
+    public DefaultCategoryDataset obtenerNumeroVisitasPorMes() {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         try {
-            // Consulta que agrupa las mascotas por rango de edad
-            String sql = "SELECT CASE " +
-                         "   WHEN m.Edad_mascota < 1 THEN 'Menos de 1 año' " +
-                         "   WHEN m.Edad_mascota BETWEEN 1 AND 5 THEN '1 a 5 años' " +
-                         "   ELSE 'Más de 5 años' END AS rango_edad, " +
-                         "   COUNT(m.idMascota) AS cantidad " +
-                         "FROM MASCOTA m " +
-                         "GROUP BY rango_edad";
+            // Nueva consulta: número de citas por mes
+            String sql = "SELECT MONTHNAME(c.FechaCita) AS MES, COUNT(c.IdCita) AS CantidadCitas " +
+                         "FROM CITA c " +
+                         "GROUP BY MONTHNAME(c.FechaCita) " +
+                         "ORDER BY MONTHNAME(c.FechaCita) ASC";
 
             rs = st.executeQuery(sql);
 
-            // Procesar los resultados y agregar los valores al dataset
             while (rs.next()) {
-                String rangoEdad = rs.getString("rango_edad");
-                int cantidad = rs.getInt("cantidad");
-                dataset.addValue(cantidad, "Mascotas", rangoEdad);  // Datos para el gráfico de barras o líneas
+                String mes = rs.getString("MES");
+                int cantidad = rs.getInt("CantidadCitas");
+                dataset.addValue(cantidad, "Citas", mes);  // Datos para el gráfico de líneas
             }
 
             //con.close();
@@ -84,8 +81,9 @@ public class CRUD_Reportes extends ConectarBD{
             e.printStackTrace();
         }
         return dataset;
-    }//Fin metodo
+    }//Fin método
 
+    
     // Método para generar un gráfico circular: Distribución de edad de las mascotas
     public DefaultPieDataset obtenerDistribucionEdadMascotas2() {
         DefaultPieDataset dataset = new DefaultPieDataset();
