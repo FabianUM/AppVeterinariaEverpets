@@ -12,6 +12,7 @@ public class CentrarForma {
         Dimension jifSize = inf.getSize();
         inf.setLocation((desktopSize.width - jifSize.width)/2,
                          (desktopSize.height - jifSize.height)/2-80);
-    }
-}
+    }//Fin metodo
+    
+}//Fin clase
 
