@@ -3,7 +3,6 @@ package DAO;
 import Formatos.*;
 import Modelo.*;
 import javax.swing.JTable;
-import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 
 public class CRUD_Veterinarios extends ConectarBD{
