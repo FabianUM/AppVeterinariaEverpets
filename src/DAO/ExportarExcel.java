@@ -12,10 +12,8 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-/**
- *
- * @author Fabian
- */
+
+
 public class ExportarExcel {
     
     public void exportarExcel(JTable t) throws IOException {
