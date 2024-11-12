@@ -27,38 +27,11 @@ public class ControladorReportes implements ActionListener{
     void ActualizarForma(){
          crud = new CRUD_Reportes();
          // Obtener los datos de las consultas para cada gráfico
-         //DefaultPieDataset dataset = crud.obtenerDistribucionTiposMascotas();
          DefaultPieDataset pieDataset = crud.obtenerDistribucionTiposMascotas();
          DefaultCategoryDataset barDataset = crud.obtenerNumeroMascotasPorDueno();
-         DefaultCategoryDataset lineDataset = crud.obtenerDistribucionEdadMascotas();  // Corrigiendo nombre
-         DefaultPieDataset ageDataset = crud.obtenerDistribucionEdadMascotas2(); // Corrigiendo nombre
-         
-         /*
-         // Crear el gráfico de torta
-            JFreeChart chart = ChartFactory.createPieChart(
-                    "Distribución de Tipos de Mascotas",  // Título
-                    dataset,                              // Datos
-                    true,                                 // Leyenda
-                    true,                                 // Tooltips
-                    false                                 // URLs
-            );
-            
-            // Verificar si el gráfico está siendo creado
-            if (chart != null) {
-                System.out.println("Gráfico creado con éxito.");
-            } else {
-                System.out.println("Error al crear el gráfico.");
-            }
-
-            // Crear un panel para el gráfico
-            ChartPanel chartPanel = new ChartPanel(chart);
-            chartPanel.setPreferredSize(new java.awt.Dimension(360, 170));
-
-            // Limpiar el panel y agregar el gráfico
-            vista.pnlGrafico.removeAll();
-            vista.pnlGrafico.add(chartPanel, BorderLayout.CENTER);
-            vista.pnlGrafico.revalidate();
-            vista.pnlGrafico.repaint();*/
+         //DefaultCategoryDataset lineDataset = crud.obtenerDistribucionEdadMascotas();
+         DefaultCategoryDataset lineDataset = crud.obtenerNumeroVisitasPorMes();
+         DefaultPieDataset ageDataset = crud.obtenerDistribucionEdadMascotas2();
          
          // Crear los gráficos correspondientes
         JFreeChart pieChart = ChartFactory.createPieChart(
@@ -68,7 +41,7 @@ public class ControladorReportes implements ActionListener{
             "Número de Mascotas por Dueño", "Dueño", "Cantidad de Mascotas", barDataset
         );
         JFreeChart lineChart = ChartFactory.createLineChart(
-            "Número mascota por rango edad", "Año", "Cantidad de Mascotas", lineDataset
+            "Número Citas por Mes", "Mes", "Cantidad de Citas", lineDataset
         );
         JFreeChart ageChart = ChartFactory.createPieChart(
             "Distribución de Edad de Mascotas", ageDataset, true, true, false
