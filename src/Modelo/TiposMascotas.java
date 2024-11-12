@@ -1,6 +1,5 @@
 package Modelo;
 //librerias
-import DAO.*;
 
 public class TiposMascotas {
     private int idTipo;
