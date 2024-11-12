@@ -4,8 +4,6 @@ import Formatos.*;
 import Modelo.*;
 import Vista.*;
 import com.mysql.cj.jdbc.Blob;
-import java.io.File;
-import java.io.FileInputStream;
 
 public class CRUD_Empresa extends ConectarBD{
     public CRUD_Empresa(){}
