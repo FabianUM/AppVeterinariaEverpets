@@ -1,9 +1,7 @@
 package Controlador;
 //librerias
-import Modelo.*;
 import Vista.*;
 import DAO.*;
-import Procesos.ProcesosImprimirCarnetMascota;
 import Procesos.ProcesosImprimirTickerCita;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
