@@ -1,16 +1,11 @@
 package Procesos;
 //librerias
-import DAO.*;
-import Formatos.*;
 import Modelo.*;
-import Vista.*;
 import Vista.*;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 

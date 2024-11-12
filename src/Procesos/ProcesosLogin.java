@@ -1,8 +1,5 @@
 package Procesos;
 //librerias
-//librerias
-import DAO.*;
-import Modelo.*;
 import Vista.*;
 
 public class ProcesosLogin {

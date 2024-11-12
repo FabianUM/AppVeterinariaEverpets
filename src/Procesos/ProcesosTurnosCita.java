@@ -1,6 +1,5 @@
 package Procesos;
 //librerias
-import DAO.*;
 import Modelo.*;
 import Vista.*;
 

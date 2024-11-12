@@ -2,7 +2,6 @@ package Procesos;
 //librerias
 import Vista.*;
 import Modelo.*;
-import DAO.*;
 
 public class ProcesosTiposMascota {
     public static void Presentacion(FrmTiposMascota f9){
