@@ -17,4 +17,24 @@ public class ProcesosLogin {
         fl.txtNombre.setText("");
     }
     
+    public static void VistasSupervisor(FormularioMenu fm){
+        fm.mitemTurnosCita.setEnabled(false);
+        fm.mitemTurnosCita.setVisible(false);
+        fm.mitemMantenimientoServicioMascotas.setEnabled(false);
+        fm.mitemMantenimientoServicioMascotas.setVisible(false);
+        fm.jAdministracion.setEnabled(false);
+        fm.jAdministracion.setVisible(false);
+        fm.jReportes.setEnabled(false);
+        fm.jReportes.setVisible(false);
+    }
+    
+    public static void VistasEmpleado(FormularioMenu fm){
+        fm.jMenuConfiguracion.setEnabled(false);
+        fm.jMenuConfiguracion.setVisible(false);
+        fm.jAdministracion.setEnabled(false);
+        fm.jAdministracion.setVisible(false);
+        fm.jReportes.setEnabled(false);
+        fm.jReportes.setVisible(false);
+    }
+    
 }//fin clase
