@@ -1,6 +1,5 @@
 package Modelo;
 //librerias
-
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
