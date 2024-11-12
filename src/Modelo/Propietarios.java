@@ -1,6 +1,5 @@
 package Modelo;
 //librerias
-import DAO.*;
 
 public class Propietarios {
     private String DNI;
