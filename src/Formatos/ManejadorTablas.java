@@ -1,9 +1,10 @@
-
 package Formatos;
+//librerias
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
+
 public class ManejadorTablas {
     
     //Metodo que especifica un ancho de las columnas de tabla    
