@@ -2,8 +2,6 @@ package DAO;
 //librerias
 import Formatos.*;
 import Modelo.*;
-import java.util.Date;
-import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
