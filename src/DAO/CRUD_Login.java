@@ -2,8 +2,6 @@ package DAO;
 //librerias
 import Formatos.*;
 import Modelo.*;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 
 public class CRUD_Login extends ConectarBD{
     public CRUD_Login(){}
