@@ -2,9 +2,6 @@ package DAO;
 //librerias
 import javax.swing.JComboBox;
 import Formatos.*;
-import Modelo.*;
-import java.awt.event.ItemEvent;
-import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class ActualizarCombos extends ConectarBD{
