@@ -1,5 +1,6 @@
 package Modelo;
 //librerias
+
 public class Empresa {
     private int idEmpresa;
     private String RUC;
