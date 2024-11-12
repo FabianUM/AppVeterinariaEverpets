@@ -1,6 +1,5 @@
 package Modelo;
 //librerias
-import DAO.*;
 
 public class ConsultarCarnet {
     private int idCarnet;
