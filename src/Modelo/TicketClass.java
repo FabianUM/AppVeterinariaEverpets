@@ -1,5 +1,5 @@
 package Modelo;
-
+//librerias
 import java.util.Date;
 
 public class TicketClass {
